@@ -18,15 +18,10 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'react-hooks', 'jsx-a11y'],
+  plugins: ['import', 'react', 'react-hooks', 'jsx-a11y'],
   rules: {
     'no-unused-vars': 'warn',
+    'import/no-unresolved': 'off',
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
   },
-    settings : {
-      "import/resolver": {
-        "node": {
-          "paths": ["src"] //절대경로 설정
-        }
-      }
-    }
 };
