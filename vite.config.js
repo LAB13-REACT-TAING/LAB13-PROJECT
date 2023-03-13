@@ -9,6 +9,8 @@ export default defineConfig({
       // src 내 절대경로 설정(@)
       { find: '@components', replacement: '/src/components' },
       // src 내 절대경로 설정(@)
+      { find: '@pages', replacement: '/src/pages' },
+      // src 내 절대 경로 설정(@)
     ],
   },
 });
