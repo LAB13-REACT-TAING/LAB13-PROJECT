@@ -1,7 +1,7 @@
 import { string } from 'prop-types';
-import style from '@components/Footer/Snsicon.module.css';
+import style from '@components/Footer/SnsIcon.module.css';
 
-function Snsicon({ name, src }) {
+export function SnsIcon({ name, src }) {
   return (
     <a
       href={src}
@@ -9,6 +9,7 @@ function Snsicon({ name, src }) {
       title={name}
       className={style[name]}
       rel="noreferrer"
+      tabIndex="-1"
     >
       {' '}
     </a>
@@ -16,14 +17,12 @@ function Snsicon({ name, src }) {
 }
 
 /** Props */
-Snsicon.defaultProps = {
-  name: null,
-  src: null,
+SnsIcon.defaultProps = {
+  name: '',
+  src: '',
 };
 
-Snsicon.propTypes = {
+SnsIcon.propTypes = {
   name: string,
   src: string,
 };
-
-export default Snsicon;

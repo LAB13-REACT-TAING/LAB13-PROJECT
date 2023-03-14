@@ -6,6 +6,10 @@
   color: var(--gray-500);
 }
 
+.tabindex {
+  pointer-events: hover;
+}
+
 .Footer {
   width: 1000px;
   height: 726px;
@@ -26,7 +30,7 @@
 
 .nav {
   padding-top: 28px;
-  border-top: 1px solid var(--red-2);
+  border-top: 1px solid var(--brand-dark-bg-2);
 
   display: flex;
   flex-flow: row nowrap;
@@ -35,27 +39,6 @@
 }
 a:hover {
   color: var(--white);
-}
-
-.topinfo {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.notice {
-  display: flex;
-  flex-flow: row;
-  align-items: flex-start;
-  gap: 20px;
-}
-
-.select {
-  display: flex;
-  flex-flow: row;
-  align-items: center;
-  gap: 30px;
 }
 
 .snsicon {
