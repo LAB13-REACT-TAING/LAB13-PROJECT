@@ -1,0 +1,23 @@
+.youtube {
+  background: url('/src/assets/icons/sprites-icon.png') no-repeat -806px -124px;
+  width: 52px;
+  height: 52px;
+}
+
+.twitter {
+  background: url('/src/assets/icons/sprites-icon.png') no-repeat -694px -536px;
+  width: 52px;
+  height: 52px;
+}
+
+.instagram {
+  background: url('/src/assets/icons/sprites-icon.png') no-repeat -694px -330px;
+  width: 52px;
+  height: 52px;
+}
+
+.facebook {
+  background: url('/src/assets/icons/sprites-icon.png') no-repeat -694px -124px;
+  width: 52px;
+  height: 52px;
+}
