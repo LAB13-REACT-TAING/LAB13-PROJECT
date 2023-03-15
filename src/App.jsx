@@ -10,6 +10,7 @@ import Profiles from '@pages/Profiles/Profiles';
 import MainPageSlide from '@pages/MainPageSlide/MainPageSlide';
 import LandingPage from '@pages/LandingPage/LandingPage';
 import DetailPages from './pages/DetailPages/DetailPages';
+import Header from '@pages/Header/Header';
 
 function App() {
   return (

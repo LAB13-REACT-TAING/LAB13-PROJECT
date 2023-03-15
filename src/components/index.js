@@ -15,3 +15,5 @@ export * from './Footer/CopyRightContents';
 export * from './Footer/SnsIcon';
 export * from './Footer/LinkAtag';
 export * from './Footer/TopInfo';
+export * from './Header/Menu';
+export * from './Header/Aside';
