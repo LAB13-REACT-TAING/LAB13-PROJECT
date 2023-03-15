@@ -6,7 +6,7 @@ import { Menu, Aside } from '@components';
 function Header() {
   return (
     <div className={style.header}>
-      <NavLink className={style.logo} to="/main" />
+      <NavLink className={style.logo} />
       <Menu />
       <Aside />
     </div>
