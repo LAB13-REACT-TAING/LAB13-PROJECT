@@ -17,3 +17,4 @@ export * from './Footer/LinkAtag';
 export * from './Footer/TopInfo';
 export * from './Header/Menu';
 export * from './Header/Aside';
+export * from './Header/Modal';
