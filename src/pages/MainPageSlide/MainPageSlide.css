@@ -1,0 +1,18 @@
+.swiper .swiper-button-prev::after,
+.swiper .swiper-button-next::after {
+  margin-bottom: 60px;
+  color: red;
+}
+
+.swiper-slide {
+  width: 100%;
+  margin-bottom: 36px;
+}
+.swiper-slide img {
+  margin-top: 10px;
+  transition: all 0.2s linear;
+}
+
+.swiper-slide:hover img {
+  transform: translate(0px, -10px);
+}
