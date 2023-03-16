@@ -1,5 +1,3 @@
-import { InputForm } from '@components';
-
 export function SignUpRegForm() {
   return (
     <form>
