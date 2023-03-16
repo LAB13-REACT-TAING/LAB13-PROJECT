@@ -1,4 +1,5 @@
 import style from '@components/Header/Profile.module.css';
+import { Link } from 'react-router-dom';
 
 // icon ? `${style.modal}` : `${style.modal}` + `${style.hidden}`
 
@@ -11,7 +12,9 @@ export function Profile() {
           <div className={style.image}></div>
           <div className={style.info}>
             <p className={style.name}>닉네임</p>
-            <button className={style.site}>프로필 전환 ></button>
+            <Link to="/profile" className={style.site}>
+              프로필 전환 >
+            </Link>
           </div>
         </div>
         <hr />
