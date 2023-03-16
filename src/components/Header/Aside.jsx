@@ -4,9 +4,11 @@ import { Modal } from '@components';
 
 export function Aside() {
   const [toggle, setToggle] = useState(false);
+  const [icon, setIcon] = useState(true);
 
   const onClickSearchHandler = () => {
     setToggle(!toggle);
+    setIcon(!icon);
   };
 
   return (
@@ -15,8 +17,9 @@ export function Aside() {
         onClick={onClickSearchHandler}
         type="button"
         aria-label="검색"
-        className={style.btn}
+        className={icon ? `${style.searchBtn}` : `${style.closeBtn}`}
       />
+
       {toggle === true && <Modal />}
       <div className={style.profile} />
     </aside>
