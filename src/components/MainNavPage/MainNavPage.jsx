@@ -39,6 +39,7 @@ export default function App() {
   ];
 
   return (
+    // 오타수정용 커밋
     <div className={style.container}>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
