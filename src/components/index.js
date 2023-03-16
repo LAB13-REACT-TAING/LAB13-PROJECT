@@ -17,6 +17,7 @@ export * from './Footer/LinkAtag';
 export * from './Footer/TopInfo';
 export * from './Header/Menu';
 export * from './Header/Aside';
-export * from './Header/Modal';
+export * from './Header/Search';
 // eslint-disable-next-line import/export
 export * from './Header/Profile';
+export * from './Header/Modal';
