@@ -4,7 +4,7 @@
 import style from '@components/Header/Aside.module.css';
 import { useState } from 'react';
 // eslint-disable-next-line no-unused-vars
-import { Modal, Profile } from '@components';
+import { Search, Profile, Logout, Modal } from '@components';
 
 export function Aside() {
   const [toggle, setToggle] = useState(false);
@@ -30,7 +30,7 @@ export function Aside() {
       />
       {show === true && <Profile />}
       <div onClick={onClickProfileHandler} className={style.profile} />
-      {toggle === true && <Modal />}
+      {toggle === true && <Search />}
     </aside>
   );
 }
