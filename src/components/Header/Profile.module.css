@@ -1,0 +1,79 @@
+.member {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  background: url('@/assets/icons/sprites-icon.png') no-repeat -806px -318px;
+  position: absolute;
+  top: 0px;
+  left: 80px;
+}
+
+.member:hover {
+  cursor: pointer;
+}
+
+.my {
+  width: 312px;
+  height: 368px;
+  position: absolute;
+  top: 66px;
+  right: -90px;
+  padding: 1.667rem 0;
+  font-size: 1.25rem;
+  /* font-size: 16px; */
+  color: var(--gray-200);
+  border: 1px solid var(--gray-700);
+  background-color: var(--brand-dark-bg-2);
+}
+
+.profile {
+  width: 100%;
+  display: flex;
+  padding: 0 25px 10px 25px;
+}
+
+.image {
+  width: 55px;
+  height: 55px;
+  border-radius: 5px;
+  background: red url('') no-repeat -806px -318px;
+}
+
+.info {
+  padding: 0 25px;
+}
+
+.name {
+  color: var(--white);
+  padding: 2px 0;
+}
+
+.site {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.site:hover {
+  cursor: pointer;
+  color: var(--white);
+}
+
+hr {
+  display: block;
+  border: 1px solid var(--gray-800);
+}
+
+.menu {
+  width: 100%;
+  display: block;
+  padding: 5px 25px;
+}
+
+.menu li {
+  padding: 8px 0;
+  line-height: 1.5;
+}
