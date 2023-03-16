@@ -20,6 +20,11 @@ export default function MainPageSlide() {
 
   const FilterData = useDataFilter('slide');
 
+  const handleMouseOver = () => {
+    navigationPrevRef.current = undefined;
+    navigationNextRef.current = undefined;
+  };
+
   return (
     <>
       <div className="swiper-title">

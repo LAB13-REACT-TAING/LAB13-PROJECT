@@ -14,3 +14,12 @@
   color: #c4c4c4;
   text-align: left;
 }
+
+.contentTitle {
+  display: flex;
+}
+
+.contentTitle img {
+  margin-top: -24px;
+  z-index: 100;
+}

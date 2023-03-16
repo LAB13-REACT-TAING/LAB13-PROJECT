@@ -44,62 +44,116 @@ export default function PopularProgramSlide() {
         pagination={{ clickable: true }}
       >
         <SwiperSlide style={{ 'margin-left': '40px' }}>
-          <img src={contentsMovie01} alt="이미지 사진" />
           <div>
+            <img src={contentsMovie01} alt="이미지 사진" />
             <p className={style.content_name}>아무것도 하고 싶지 않아</p>
           </div>
         </SwiperSlide>
 
         <SwiperSlide>
-          <img src={contentsMovie02} alt="이미지 사진" />
           <div>
-            <p className={style.content_name}>알쓸인잡</p>
+            <img src={contentsMovie03} alt="이미지 사진" />
+            <p className={style.contentTitle}>
+              <img
+                className={style.contentNumber}
+                src="/src/assets/images/numbers/1.png"
+                alt="숫자 사진"
+              />
+              <span className={style.content_name}>
+                아무것도 하고 싶지 않아
+              </span>
+            </p>
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={contentsMovie03} alt="이미지 사진" />
+          <div>
+            <img src={contentsMovie03} alt="이미지 사진" />
+            <p className={style.content_name}>아무것도 하고 싶지 않아</p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={contentsMovie04} alt="이미지 사진" />
+          <div>
+            <img src={contentsMovie04} alt="이미지 사진" />
+            <p className={style.content_name}>아무것도 하고 싶지 않아</p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={contentsMovie05} alt="이미지 사진" />
+          <div>
+            <img src={contentsMovie03} alt="이미지 사진" />
+            <p className={style.content_name}>아무것도 하고 싶지 않아</p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={contentsMovie06} alt="이미지 사진" />
+          <div>
+            <img src={contentsMovie03} alt="이미지 사진" />
+            <p className={style.content_name}>아무것도 하고 싶지 않아</p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={contentsMovie07} alt="이미지 사진" />
+          <div>
+            <img src={contentsMovie03} alt="이미지 사진" />
+            <p className={style.content_name}>아무것도 하고 싶지 않아</p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={contentsMovie08} alt="이미지 사진" />
+          <div>
+            <img src={contentsMovie03} alt="이미지 사진" />
+            <p className={style.content_name}>아무것도 하고 싶지 않아</p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={contentsMovie09} alt="이미지 사진" />
+          <div>
+            <img src={contentsMovie03} alt="이미지 사진" />
+            <p className={style.content_name}>아무것도 하고 싶지 않아</p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={contentsMovie10} alt="이미지 사진" />
+          <div>
+            <img src={contentsMovie03} alt="이미지 사진" />
+            <p className={style.content_name}>아무것도 하고 싶지 않아</p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={contentsMovie11} alt="이미지 사진" />
+          <div>
+            <img src={contentsMovie03} alt="이미지 사진" />
+            <p className={style.content_name}>아무것도 하고 싶지 않아</p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={contentsMovie12} alt="이미지 사진" />
+          <div>
+            <img src={contentsMovie03} alt="이미지 사진" />
+            <p className={style.content_name}>아무것도 하고 싶지 않아</p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={contentsMovie13} alt="이미지 사진" />
+          <div>
+            <img src={contentsMovie03} alt="이미지 사진" />
+            <p className={style.content_name}>아무것도 하고 싶지 않아</p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={contentsMovie01} alt="이미지 사진" />
+          <div>
+            <img src={contentsMovie03} alt="이미지 사진" />
+            <p className={style.content_name}>아무것도 하고 싶지 않아</p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={contentsMovie02} alt="이미지 사진" />
+          <div>
+            <img src={contentsMovie03} alt="이미지 사진" />
+            <p className={style.content_name}>아무것도 하고 싶지 않아</p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={contentsMovie03} alt="이미지 사진" />
+          <div>
+            <img src={contentsMovie03} alt="이미지 사진" />
+            <p className={style.content_name}>아무것도 하고 싶지 않아</p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={contentsMovie04} alt="이미지 사진" />
+          <div>
+            <img src={contentsMovie04} alt="이미지 사진" />
+            <p className={style.content_name}>아무것도 하고 싶지 않아</p>
+          </div>
         </SwiperSlide>
       </Swiper>
     </>
