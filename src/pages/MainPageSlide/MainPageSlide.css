@@ -8,11 +8,11 @@
   width: 100%;
   margin-bottom: 36px;
 }
-.swiper-slide img {
+.swiper-slide div {
   margin-top: 10px;
   transition: all 0.2s linear;
 }
 
-.swiper-slide:hover img {
+.swiper-slide:hover div {
   transform: translate(0px, -10px);
 }

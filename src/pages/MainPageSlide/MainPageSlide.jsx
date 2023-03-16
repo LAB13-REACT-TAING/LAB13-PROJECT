@@ -32,8 +32,10 @@ import EventSlide from '../EventSlide/EventSlide';
 SwiperCore.use([Navigation, Pagination, A11y]);
 
 export default function MainPageSlide() {
-  const navigationPrevRef = React.useRef();
-  const navigationNextRef = React.useRef();
+  const navigationPrevRef = React.useRef(null);
+  const navigationNextRef = React.useRef(null);
+
+  const [numberid, setNumberid] = useState(0);
 
   // const imageCollectionRef = collection(db, 'image');
 
@@ -66,10 +68,15 @@ export default function MainPageSlide() {
   //   getImge();
   // }, []);
 
+  const handleMouseOver = () => {
+    navigationPrevRef.current = undefined;
+    navigationNextRef.current = undefined;
+  };
+
   return (
     <>
       <div className={style.mainBanner}>메인 배너 들어갈 자리 </div>
-      <div className="contanier-title">
+      <div className="contanier-title" onMouseEnter={handleMouseOver}>
         <h2
           style={{ 'margin-left': '60px', 'margin-bottom': '12px' }}
           className={style.list_title}
@@ -86,12 +93,12 @@ export default function MainPageSlide() {
             prevEl: navigationPrevRef.current,
             nextEl: navigationNextRef.current,
           }}
-          pagination={{ clickable: true }}
         >
           <SwiperSlide style={{ 'margin-left': '40px' }}>
             <div>
               <img src={contentsMovie02} alt="이미지 사진" />
             </div>
+
             <div>
               <p className={style.content_name}>아무것도 하고 싶지 않아</p>
             </div>
@@ -102,8 +109,6 @@ export default function MainPageSlide() {
               <p className={style.content_name}>알쓸인잡</p>
             </div>
           </SwiperSlide>
-          {/* <div ref={navigationPrevRef} />
-          <div ref={navigationNextRef} /> */}
           <SwiperSlide>
             <img src={contentsMovie03} alt="이미지 사진" />
           </SwiperSlide>
