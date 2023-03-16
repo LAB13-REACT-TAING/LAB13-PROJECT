@@ -1,9 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+
 // import Header from './components/Header/Header';
 import Header from '@components/Header/Header';
 import Footer from '@components/Footer/Footer';
-import Test from '@components/Test/Test';
+import MainPageSlide from '@pages/MainPageSlide/MainPageSlide';
+import QuickVodSlide from './pages/QuickVodSlide/QuickVodSlide';
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -13,7 +15,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/hello" element={<Test />} />
+          <Route path="/main" element={<MainPageSlide />} />
         </Routes>
         <Footer />
       </BrowserRouter>
