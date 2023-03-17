@@ -1,12 +1,13 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import React, { useEffect, useState } from 'react';
 import SwiperCore, { Navigation, Pagination, A11y } from 'swiper';
-// import { collection, getDocs } from 'firebase/firestore';
-// import { db } from '../../utils/firebase/firebase';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import style from './MainPageSlide.module.css';
 import './MainPageSlide.css';
 import 'swiper/swiper.css';
 import 'swiper/css/navigation';
+
+import { useReadData } from '../../utils/firebase/index';
 
 // eslint-disable-next-line import/no-duplicates
 import contentsMovie01 from '../../assets/images/amugeosdo_02.jpg';
@@ -35,50 +36,45 @@ export default function MainPageSlide() {
   const navigationPrevRef = React.useRef(null);
   const navigationNextRef = React.useRef(null);
 
-  const [numberid, setNumberid] = useState(0);
+  // const navigate = useNavigate();
+  const { id = 4 } = useParams();
 
-  // const imageCollectionRef = collection(db, 'image');
+  const [num, setNum] = useState(1);
 
-  // useEffect(() => {
-  //   const getImge = async () => {
-  //     const data = await getDocs(imageCollectionRef);
+  const { readData, data, isLoading, error } = useReadData('image');
 
-  //     // eslint-disable-next-line no-underscore-dangle
-  //     // data.docs[1]._document.data.value.mapValue.fields.name.stringValue, 비디오 이름
-  //     // eslint-disable-next-line no-underscore-dangle
-  //     const qqqqq =
-  //       data.docs[2]._document.data.value.mapValue.fields.src.mapValue.fields.slide.stringValue.concat(
-  //         '.jpg',
-  //       );
+  async function handleReadData() {
+    // 모든 데이터를 가져옵니다.
+    await readData();
 
-  //     console.log(qqqqq);
+    // 또는 특정 도큐멘트 데이터만 가져옵니다.
+    await readData();
+  }
 
-  //     setImg(`"/assets/images/${qqqqq}"`);
-  //     data.docs.filter((element, index) => {
-  //       const result =
-  //         // eslint-disable-next-line no-underscore-dangle
-  //         data.docs[index]._document.data.value.mapValue.fields.src.mapValue
-  //           .fields.slide;
-  //       if (result !== undefined) {
-  //         console.log(result);
-  //       }
-  //     });
-  //   };
-
-  //   getImge();
-  // }, []);
-
-  const handleMouseOver = () => {
+  const TestHandler = () => {
     navigationPrevRef.current = undefined;
     navigationNextRef.current = undefined;
+    setNum(num + 2);
+
+    // console.log(navigationPrevRef);
+  };
+
+  const Test1Handler = () => {
+    navigationPrevRef.current = null;
+    navigationNextRef.current = null;
+    setNum(num + 2);
   };
 
   return (
     <>
       <div className={style.mainBanner}>메인 배너 들어갈 자리 </div>
-      <div className="contanier-title" onMouseEnter={handleMouseOver}>
+      <div
+        className="contanier-title"
+        onMouseEnter={TestHandler}
+        onMouseLeave={Test1Handler}
+      >
         <h2
-          style={{ 'margin-left': '60px', 'margin-bottom': '12px' }}
+          style={{ 'margin-left': '60px', 'margin-bottom': '8px' }}
           className={style.list_title}
         >
           티빙에서 꼭 봐야하는 콘텐츠
@@ -95,14 +91,14 @@ export default function MainPageSlide() {
           }}
         >
           <SwiperSlide style={{ 'margin-left': '40px' }}>
-            <div>
-              <img src={contentsMovie02} alt="이미지 사진" />
-            </div>
-
-            <div>
-              <p className={style.content_name}>아무것도 하고 싶지 않아</p>
+            <div className={style.contentsImg}>
+              <Link to={`/detailPage01/${id}`} className={style.content_name}>
+                <img src={contentsMovie02} alt="이미지 사진" />
+                아무것도 하기 싫다.
+              </Link>
             </div>
           </SwiperSlide>
+
           <SwiperSlide>
             <img src={contentsMovie02} alt="이미지 사진" />
             <div>

@@ -1,6 +1,4 @@
-// firebase.js
 import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
 
 const {
   VITE_FIREBASE_API_KEY,
@@ -20,9 +18,7 @@ const firebaseConfig = {
   appId: VITE_FIREBASE_APP_ID,
 };
 
-const fireStore = initializeApp(firebaseConfig);
+// Firebase 초기화
+const firebaseApp = initializeApp(firebaseConfig);
 
-// 필요한 곳에서 사용할 수 있도록 내보내기
-// 다른 곳에서 불러올때 firestore로 불러와야 함!!
-// eslint-disable-next-line import/prefer-default-export
-export const db = getFirestore(fireStore);
+export default firebaseApp;

@@ -1,13 +1,9 @@
 .swiper .swiper-button-prev::after,
 .swiper .swiper-button-next::after {
   margin-bottom: 60px;
-  color: red;
+  color: #e1e1e1;
 }
 
-.swiper-slide {
-  width: 100%;
-  margin-bottom: 36px;
-}
 .swiper-slide div {
   margin-top: 10px;
   transition: all 0.2s linear;
