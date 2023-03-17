@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
 
 import 'swiper/swiper.css';
 import 'swiper/css/navigation';
@@ -11,6 +11,7 @@ import slideImage1 from '../../assets/images/maknaeadeul_01.jpg';
 import slideImage2 from '../../assets/images/bodyvalue_03.jpg';
 
 export default function App() {
+  // 커밋 수정용
   const slides = [
     {
       id: 'slide-1',
@@ -39,13 +40,20 @@ export default function App() {
   ];
 
   return (
-    // 오타수정용 커밋
     <div className={style.container}>
       <Swiper
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         slidesPerView={1}
         spaceBetween={0}
         speed={400}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
+        onMouseEnter={{
+          pauseOnMouseEnter: true,
+        }}
         loop
         navigation
         pagination={{ clickable: true }}
