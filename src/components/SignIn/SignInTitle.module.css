@@ -1,0 +1,7 @@
+.signInTitleWrap {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 60px !important;
+}
