@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import React, { useEffect, useState } from 'react';
 import SwiperCore, { Navigation, Pagination, A11y } from 'swiper';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './MainPageSlide.css';
 import 'swiper/swiper.css';
 import 'swiper/css/navigation';
