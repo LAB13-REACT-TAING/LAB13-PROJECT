@@ -46,7 +46,16 @@ export default function PopularProgramSlide() {
         <SwiperSlide style={{ 'margin-left': '40px' }}>
           <div>
             <img src={contentsMovie01} alt="이미지 사진" />
-            <p className={style.content_name}>아무것도 하고 싶지 않아</p>
+            <p className={style.contentTitle}>
+              <img
+                className={style.contentNumber}
+                src="/src/assets/images/numbers/one.png"
+                alt="숫자 사진"
+              />
+              <span className={style.content_name}>
+                아무것도 하고 싶지 않아
+              </span>
+            </p>
           </div>
         </SwiperSlide>
 
@@ -56,7 +65,7 @@ export default function PopularProgramSlide() {
             <p className={style.contentTitle}>
               <img
                 className={style.contentNumber}
-                src="/src/assets/images/numbers/1.png"
+                src="/src/assets/images/numbers/two.png"
                 alt="숫자 사진"
               />
               <span className={style.content_name}>
@@ -68,7 +77,16 @@ export default function PopularProgramSlide() {
         <SwiperSlide>
           <div>
             <img src={contentsMovie03} alt="이미지 사진" />
-            <p className={style.content_name}>아무것도 하고 싶지 않아</p>
+            <p className={style.contentTitle}>
+              <img
+                className={style.contentNumber}
+                src="/src/assets/images/numbers/three.png"
+                alt="숫자 사진"
+              />
+              <span className={style.content_name}>
+                아무것도 하고 싶지 않아
+              </span>
+            </p>
           </div>
         </SwiperSlide>
         <SwiperSlide>
