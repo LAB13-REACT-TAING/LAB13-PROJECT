@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import React, { useEffect, useState } from 'react';
 import SwiperCore, { Navigation, Pagination, A11y } from 'swiper';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './MainPageSlide.css';
 import 'swiper/swiper.css';
 import 'swiper/css/navigation';
@@ -42,7 +42,11 @@ export default function MainPageSlide() {
         </h2>
 
         <Swiper
-          style={{ 'margin-bottom': '36px', 'margin-left': '44px' }}
+          style={{
+            'margin-bottom': '36px',
+            'margin-left': '44px',
+            'margin-top': '10px',
+          }}
           spaceBetween={10}
           slidesPerView={7.4}
           slidesPerGroup={6}
