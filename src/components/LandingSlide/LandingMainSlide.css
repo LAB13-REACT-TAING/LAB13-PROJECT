@@ -1,0 +1,30 @@
+.container {
+    position: relative;
+    overflow: hidden;
+}
+
+.swiper {
+    width: 100%;
+    height: 583px;
+}
+
+.swiper-slide img {
+    display: block;
+    max-width: 904px;
+    width: 904px;
+    height: 510px;
+    border-radius: 4px;
+    filter: brightness(0.5) grayscale(1);
+}
+
+.swiper-slide {
+    flex-basis: 904px;
+}
+
+.swiper-slide-active {
+    opacity: 1;
+}
+
+.swiper-slide-active img {
+    filter: brightness(1) grayscale(0);
+}
