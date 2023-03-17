@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-unused-expressions */
 import { useState, useEffect, useRef } from 'react';
+import { useRecoilState } from 'recoil';
+import { signUpRequiredState } from '../../@store/signUpRequiredState';
 import style from './SignUpCheckBox.module.css';
 
 const checkService = {
@@ -17,8 +19,11 @@ const checkService = {
 const checkServiceKey = Object.keys(checkService);
 
 export function SignUpCheckBox() {
+  const [requiredState, setRequiredState] = useRecoilState(signUpRequiredState);
   const [checkServiceList, setCheckServiceList] = useState([]);
-  useEffect(() => {}, []);
+  useEffect(() => {
+    // console.log('requiredState : ', requiredState);
+  }, []);
 
   const onChangeCheckAllHandler = e => {
     const isAllChecked = e.target.checked;
@@ -28,11 +33,30 @@ export function SignUpCheckBox() {
   };
 
   const onChangeCheckServiceHandler = e => {
+    const CheckServiceReqName = e.target.name;
+    const CheckServiceReqId = e.target.id;
     e.target.checked
       ? setCheckServiceList([...checkServiceList, e.target.id])
       : setCheckServiceList(
           checkServiceList.filter(remain => remain !== e.target.id),
         );
+    if (
+      CheckServiceReqName === 'checkServiceReq' &&
+      e.target.checked === true
+    ) {
+      setRequiredState(current => ({
+        ...current,
+        [CheckServiceReqId]: true,
+      }));
+    } else if (
+      CheckServiceReqName === 'checkServiceReq' &&
+      e.target.checked === false
+    ) {
+      setRequiredState(current => ({
+        ...current,
+        [CheckServiceReqId]: false,
+      }));
+    }
   };
 
   return (
@@ -61,7 +85,7 @@ export function SignUpCheckBox() {
           <input
             type="checkbox"
             id="checkServiceReq01"
-            name="checkService"
+            name="checkServiceReq"
             checked={checkServiceList.includes('checkServiceReq01')}
             onChange={onChangeCheckServiceHandler}
           />
@@ -73,7 +97,7 @@ export function SignUpCheckBox() {
           <input
             type="checkbox"
             id="checkServiceReq02"
-            name="checkService"
+            name="checkServiceReq"
             checked={checkServiceList.includes('checkServiceReq02')}
             onChange={onChangeCheckServiceHandler}
           />
@@ -85,7 +109,7 @@ export function SignUpCheckBox() {
           <input
             type="checkbox"
             id="checkServiceReq03"
-            name="checkService"
+            name="checkServiceReq"
             checked={checkServiceList.includes('checkServiceReq03')}
             onChange={onChangeCheckServiceHandler}
           />
