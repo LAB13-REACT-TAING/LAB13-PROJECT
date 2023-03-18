@@ -4,7 +4,7 @@
 import style from '@components/Header/Aside.module.css';
 import { useState } from 'react';
 // eslint-disable-next-line no-unused-vars
-import { Search, Profile, Logout, Modal } from '@components';
+import { Search, Profile } from '@components';
 
 export function Aside() {
   const [toggle, setToggle] = useState(false);
@@ -15,22 +15,22 @@ export function Aside() {
     setToggle(!toggle);
     setIcon(!icon);
   };
-
-  const onClickProfileHandler = () => {
+  const onClickMemberHandler = () => {
     setShow(!show);
   };
 
   return (
     <aside className={style.aside}>
+      {toggle === true && <Search />}
       <button
         onClick={onClickSearchHandler}
         type="button"
         aria-label="검색"
         className={icon ? `${style.closeBtn}` : `${style.searchBtn}`}
       />
-      {show === true && <Profile />}
-      <div onClick={onClickProfileHandler} className={style.profile} />
-      {toggle === true && <Search />}
+      <div onClick={onClickMemberHandler} className={style.member}>
+        {show === true && <Profile />}
+      </div>
     </aside>
   );
 }
