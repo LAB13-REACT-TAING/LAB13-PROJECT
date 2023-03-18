@@ -1,12 +1,18 @@
 import style from '@components/Header/Profile.module.css';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Logout } from './Logout';
 
-// icon ? `${style.modal}` : `${style.modal}` + `${style.hidden}`
+export function Profile({ onClickSearchHandler }) {
+  const [logout, setLogout] = useState(false);
 
-export function Profile() {
+  const onClickLogoutHandler = e => {
+    e.stopPropagation();
+    setLogout(!logout);
+  };
+
   return (
     <div>
-      <div className={style.member} />
       <div className={style.my}>
         <div className={style.profile}>
           <div className={style.image}></div>
@@ -23,7 +29,8 @@ export function Profile() {
           <li>이용권</li>
           <li>쿠폰등록</li>
           <li>고객센터</li>
-          <li>로그아웃</li>
+          <li onClick={onClickLogoutHandler}>로그아웃</li>
+          {logout === true && <Logout />}
         </ul>
       </div>
     </div>

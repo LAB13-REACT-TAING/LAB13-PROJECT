@@ -28,10 +28,9 @@
   background: url('@/assets/icons/sprites-icon.png') no-repeat -90px -588px;
 }
 
-.profile {
+.member {
   width: 40px;
   height: 40px;
-  border: none;
   border-radius: 5px;
   background: url('@/assets/icons/sprites-icon.png') no-repeat -806px -318px;
   position: absolute;
@@ -39,6 +38,6 @@
   left: 80px;
 }
 
-.profile:hover {
+.member:hover {
   cursor: pointer;
 }

@@ -1,17 +1,3 @@
-.member {
-  width: 40px;
-  height: 40px;
-  border-radius: 5px;
-  background: url('@/assets/icons/sprites-icon.png') no-repeat -806px -318px;
-  position: absolute;
-  top: 0px;
-  left: 80px;
-}
-
-.member:hover {
-  cursor: pointer;
-}
-
 .my {
   width: 312px;
   height: 368px;
@@ -24,6 +10,10 @@
   color: var(--gray-200);
   border: 1px solid var(--gray-700);
   background-color: var(--brand-dark-bg-2);
+}
+
+.hidden {
+  display: hidden;
 }
 
 .profile {
