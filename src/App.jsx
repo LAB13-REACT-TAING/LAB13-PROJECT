@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from '@components/Header/Header';
 import Footer from '@components/Footer/Footer';
-import MainNavPage from '@components/MainNavPage/MainNavPage';
+import MainNavPage from '@pages/MainNavPage/MainNavPage';
 
 function App() {
   return (

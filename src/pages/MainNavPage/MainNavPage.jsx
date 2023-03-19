@@ -1,5 +1,7 @@
+import { useLayoutEffect, useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
+import { useReadData } from '../../utils/firebase/firestore';
 
 import 'swiper/swiper.css';
 import 'swiper/css/navigation';
@@ -10,8 +12,7 @@ import style from './MainNavPage.module.css';
 import slideImage1 from '../../assets/images/maknaeadeul_01.jpg';
 import slideImage2 from '../../assets/images/bodyvalue_03.jpg';
 
-export default function App() {
-  // 커밋 수정용
+export default function MainNavPage() {
   const slides = [
     {
       id: 'slide-1',
@@ -63,8 +64,8 @@ export default function App() {
         {slides.map(slide => (
           <SwiperSlide key={slide.id} className={style.swiperSlide}>
             <img src={slide.image} alt="" />
-            <div className="contents">
-              <p className="contents-text">{slide.description}</p>
+            <div className={style.contents}>
+              <p className={style.contents_text}>{slide.description}</p>
               <a href={slide.link}>자세히 보기</a>
             </div>
           </SwiperSlide>
