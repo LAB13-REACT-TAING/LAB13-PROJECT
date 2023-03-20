@@ -5,31 +5,14 @@ import { Link } from 'react-router-dom';
 import 'swiper/swiper.css';
 import 'swiper/css/navigation';
 import './LiveChannel.css';
-import { useReadData } from '../../utils/firebase/index';
+import useDataFilter from '../../hooks/useDataFilter';
 
 SwiperCore.use([Navigation, Pagination, A11y]);
 
 export default function LiveChannel() {
-  const [filterData, setfilterData] = useState([]);
-  const { readData, data, isLoading, error } = useReadData('image');
   const baseUrl = '../src/assets/images/'; // 경로 설정
-  useEffect(() => {
-    (async () => {
-      if (!data) {
-        await readData();
-      }
-    })();
 
-    if (data) {
-      localStorage.setItem('LiveState', JSON.stringify({ image: data }));
-      const records = JSON.parse(localStorage.getItem('LiveState'));
-      const datas = records?.image?.filter(item => {
-        return item.src?.live !== undefined;
-      });
-
-      setfilterData(datas);
-    }
-  }, [data, readData]);
+  const FilterData = useDataFilter('live');
 
   return (
     <>
@@ -54,7 +37,7 @@ export default function LiveChannel() {
         navigation
         pagination={{ clickable: true }}
       >
-        {filterData?.map(contents => (
+        {FilterData?.map(contents => (
           <SwiperSlide key={contents.id}>
             <div>
               <Link to={`${contents.src.live}/${contents.id}`}>
