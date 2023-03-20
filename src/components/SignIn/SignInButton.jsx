@@ -77,22 +77,23 @@ export function SignInButton({ emailData, passwordData }) {
           자동로그인
         </label>
       </div>
-      <div>
+      <div className={style.buttonWrap}>
         <button
           type="button"
+          className={style.doSignInBtn}
           onClick={onClickShowDataHandler}
           disabled={loginSuccess === true}
         >
-          로그인
-        </button>
-        <button
-          type="button"
-          onClick={onClickSignOutHandler}
-          disabled={loginSuccess === false}
-        >
-          (임시)로그아웃
+          로그인하기
         </button>
       </div>
+      <button
+        type="button"
+        onClick={onClickSignOutHandler}
+        disabled={loginSuccess === false}
+      >
+        (임시)로그아웃
+      </button>
     </>
   );
 }

@@ -48,3 +48,30 @@ label[name='autoCheckActive']::before {
   width: 26px;
   height: 26px;
 }
+
+.buttonWrap {
+  margin-top: 1rem !important;
+}
+
+.doSignInBtn {
+  background-color: #ff153c;
+  border-color: #ff153c;
+  color: #fff;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 1px;
+  padding: 1.675rem 0;
+  font-size: 1.3rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.doSignInBtn:hover {
+  background-color: #cc1030;
+  border-color: #cc1030;
+}
