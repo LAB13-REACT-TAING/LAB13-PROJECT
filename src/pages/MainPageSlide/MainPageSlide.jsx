@@ -33,7 +33,7 @@ export default function MainPageSlide() {
         <Swiper
           style={{
             'margin-bottom': '36px',
-            'margin-left': '44px',
+            'margin-left': '45px',
             'padding-top': '10px',
           }}
           spaceBetween={10}
