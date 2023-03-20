@@ -19,6 +19,8 @@ export function Aside() {
     setShow(!show);
   };
 
+  const buttonClass = icon ? `${style.closeBtn}` : `${style.searchBtn}`;
+
   return (
     <aside className={style.aside}>
       {toggle === true && <Search />}
@@ -26,7 +28,7 @@ export function Aside() {
         onClick={onClickSearchHandler}
         type="button"
         aria-label="검색"
-        className={icon ? `${style.closeBtn}` : `${style.searchBtn}`}
+        className={buttonClass}
       />
       <div onClick={onClickMemberHandler} className={style.member}>
         {show === true && <Profile />}
