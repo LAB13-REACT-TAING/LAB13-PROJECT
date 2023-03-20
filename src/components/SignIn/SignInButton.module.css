@@ -1,0 +1,50 @@
+.autoCheckArea {
+  position: relative;
+  margin-top: 1rem !important;
+}
+
+label[name='autoCheckInactive'] {
+  display: inline-block;
+  padding-left: 2.15rem;
+  cursor: pointer;
+  width: auto;
+  color: #6e6e6e;
+  line-height: 1.5rem;
+  letter-spacing: normal;
+  font-size: 1.25rem;
+  text-indent: 0;
+}
+
+label[name='autoCheckInactive']::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url('../../assets/icons/sprites-icon.png') no-repeat -350px -548px;
+  width: 26px;
+  height: 26px;
+}
+
+label[name='autoCheckActive'] {
+  display: inline-block;
+  padding-left: 2.15rem;
+  cursor: pointer;
+  width: auto;
+  color: var(--white);
+  line-height: 1.5rem;
+  letter-spacing: normal;
+  font-size: 1.25rem;
+  text-indent: 0;
+}
+
+label[name='autoCheckActive']::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url('../../assets/icons/sprites-icon.png') no-repeat -396px -548px;
+  width: 26px;
+  height: 26px;
+}

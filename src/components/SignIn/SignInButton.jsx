@@ -7,6 +7,8 @@ import style from './SignInButton.module.css';
 export function SignInButton({ emailData, passwordData }) {
   // 로그인 성공 여부 임시 상태 관리
   const [loginSuccess, setLoginSuccess] = useState(false);
+  const [autoCheck, isAutoCheck] = useState(false);
+
   const movePage = useNavigate();
   const {
     signIn,
@@ -55,11 +57,25 @@ export function SignInButton({ emailData, passwordData }) {
     signOut();
     setLoginSuccess(false);
   };
+
+  const onClickAutoHandler = () => {
+    console.log(
+      '자동로그인 체크 활성화/비활성화 및 해당 부분만 렌더링 되는 방법 생각',
+    );
+    isAutoCheck(!autoCheck);
+  };
+
   return (
     <>
-      <div>
-        <input type="checkbox" id="autoSignInCheck" />
-        <label htmlFor="autoSignInCheck">자동로그인</label>
+      <div className={style.autoCheckArea}>
+        <input className="a11yHidden" type="checkbox" id="autoSignInCheck" />
+        <label
+          name={autoCheck ? 'autoCheckActive' : 'autoCheckInactive'}
+          htmlFor="autoSignInCheck"
+          onClick={onClickAutoHandler}
+        >
+          자동로그인
+        </label>
       </div>
       <div>
         <button
