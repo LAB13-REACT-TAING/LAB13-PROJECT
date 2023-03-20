@@ -2,14 +2,12 @@ import { useLayoutEffect, useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Mousewheel, Keyboard, A11y } from 'swiper';
 import { useReadData } from '../../utils/firebase/firestore';
-import banner01 from '../../assets/images/bomulchajgi_06.jpg';
 import './LandingMainSlide.css';
 import 'swiper/css';
 
 export default function LandingMainSlide() {
-  const [images, setImages] = useState('');
+  const [images, setImages] = useState([]);
   const { readData, data } = useReadData('image');
-  const baseUrl = '../src/assets/images/';
 
   useEffect(() => {
     (async () => {
@@ -20,13 +18,19 @@ export default function LandingMainSlide() {
 
     if (data) {
       localStorage.setItem('imageState', JSON.stringify({ image: data }));
-      setImages(JSON.parse(localStorage.getItem('imageState')));
-
+      const records = JSON.parse(localStorage.getItem('imageState'));
+      const datas = records?.image
+        ?.filter(item => {
+          return item.src?.rendingfunny !== undefined;
+        })
+        .map(item => {
+          return item.src?.rendingfunny;
+        });
+      setImages(datas.slice(0, 4));
     }
+  }, [data, readData]);
 
-  }, [data]);
-
-  console.log(images);
+  console.log('images', images);
 
   return (
     <Swiper
@@ -42,48 +46,17 @@ export default function LandingMainSlide() {
       modules={[Mousewheel, Keyboard, A11y]}
       className="mySwiper"
     >
-      <SwiperSlide
-        style={{
-          marginLeft: '24px',
-        }}
-      >
-        <img src={banner01} alt="이미지" />
-      </SwiperSlide>
-      <SwiperSlide
-        style={{
-          marginLeft: '24px',
-        }}
-      >
-        <img src={banner01} alt="이미지" />
-      </SwiperSlide>
-      <SwiperSlide
-        style={{
-          marginLeft: '24px',
-        }}
-      >
-        <img src={banner01} alt="이미지" />
-      </SwiperSlide>
-      <SwiperSlide
-        style={{
-          marginLeft: '24px',
-        }}
-      >
-        <img src={banner01} alt="이미지" />
-      </SwiperSlide>
-      <SwiperSlide
-        style={{
-          marginLeft: '24px',
-        }}
-      >
-        <img src={banner01} alt="이미지" />
-      </SwiperSlide>
-      <SwiperSlide
-        style={{
-          marginLeft: '24px',
-        }}
-      >
-        <img src={banner01} alt="이미지" />
-      </SwiperSlide>
+      {images.map(url => {
+        const baseUrl = '../src/assets/images/';
+        const src = `${baseUrl}${url}.jpg`;
+        const style = { marginLeft: '24px' };
+
+        return (
+          <SwiperSlide style={style}>
+            <img src={src} alt="이미지" />
+          </SwiperSlide>
+        );
+      })}
     </Swiper>
   );
 }

@@ -1,12 +1,9 @@
 import gsap from 'gsap';
+import { string } from 'prop-types';
 import { useLayoutEffect, useRef } from 'react';
 import style from './LandingSlideTitle.module.css';
 
-export default function LandingSlideTitle() {
-  const title = '내가 찾던 재미';
-  const boldText = '보고 싶은 콘텐츠를 발견하세요!';
-  const text =
-    '최신, 인기 TV프로그램, 영화, 해외시리즈, 파라마운트+ 오리지널 및 독점';
+export default function LandingSlideTitle({ title, boldText, text }) {
   const slideTitle = useRef();
 
   useLayoutEffect(() => {
@@ -28,3 +25,16 @@ export default function LandingSlideTitle() {
     </div>
   );
 }
+
+/** Props */
+LandingSlideTitle.defaultProps = {
+  title: null,
+  boldText: null,
+  text: null,
+};
+
+LandingSlideTitle.propTypes = {
+  title: string,
+  boldText: string,
+  text: string,
+};
