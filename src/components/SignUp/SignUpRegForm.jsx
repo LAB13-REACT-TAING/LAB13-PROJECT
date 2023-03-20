@@ -42,9 +42,19 @@ export function SignUpRegForm() {
     }
   };
 
+  /* const onBlurPasswordConfirmHandler = () => {
+    if (passwordConfirm === '') {
+      setPasswordConfirmError(true);
+    }
+  }; */
+
   const onBlurPasswordConfirmHandler = () => {
     if (passwordConfirm === '') {
       setPasswordConfirmError(true);
+    } else if (password !== passwordConfirm) {
+      setPasswordConfirmError(true);
+    } else {
+      setPasswordConfirmError(false);
     }
   };
 
@@ -96,7 +106,12 @@ export function SignUpRegForm() {
           onChange={onChangePasswordConfirmonHandler}
           onBlur={onBlurPasswordConfirmHandler}
         />
-        {passwordConfirmError && <p>입력한 내용이 없어요.</p>}
+        {passwordConfirmError &&
+          (passwordConfirm === '' ? (
+            <p>입력한 내용이 없어요.</p>
+          ) : (
+            <p>비밀번호가 일치하지 않습니다.</p>
+          ))}
       </div>
     </form>
   );
