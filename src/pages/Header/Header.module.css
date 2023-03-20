@@ -19,6 +19,7 @@
 
 .logo {
   display: inline-block;
+  min-width: 132px;
   width: 132px;
   height: 42px;
   background: url('@/assets/icons/logo.png') no-repeat;
