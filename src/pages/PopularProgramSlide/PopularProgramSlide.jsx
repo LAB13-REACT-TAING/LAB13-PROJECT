@@ -14,7 +14,7 @@ export default function PopularProgramSlide() {
 
   const numberUrl = '../src/assets/images/numbers/';
 
-  const FilterData = useDataFilter();
+  const FilterData = useDataFilter('slide');
   const test = 1;
 
   return (

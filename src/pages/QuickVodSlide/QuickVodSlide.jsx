@@ -6,32 +6,14 @@ import 'swiper/swiper.css';
 import 'swiper/css/navigation';
 import './QuickVodSlide.css';
 // 커밋 내용 컨텐츠 호버했을때 살짝 튀어나오는 효과 및 왼쪽하단에 해당 컨텐츠 상세페이지 링크 출력 #16
-import { useReadData } from '../../utils/firebase/index';
+import useDataFilter from '../../hooks/useDataFilter';
 
 SwiperCore.use([Navigation, Pagination, A11y]);
 
 export default function QuickVodSlide() {
   const baseUrl = '../src/assets/images/'; // 경로 설정
-  const [filterData, setfilterData] = useState([]);
-  const { readData, data, isLoading, error } = useReadData('image');
-  useEffect(() => {
-    (async () => {
-      if (!data) {
-        await readData();
-      }
-    })();
 
-    if (data) {
-      localStorage.setItem('quickState', JSON.stringify({ image: data }));
-      const records = JSON.parse(localStorage.getItem('quickState'));
-      const datas = records?.image?.filter(item => {
-        return item.src?.quickslide !== undefined;
-      });
-
-      setfilterData(datas);
-    }
-  }, [data, readData]);
-
+  const FilterData = useDataFilter('quickslide');
   return (
     <>
       <div>
@@ -54,7 +36,7 @@ export default function QuickVodSlide() {
         slidesPerGroup={5}
         navigation
       >
-        {filterData?.map(contents => (
+        {FilterData?.map(contents => (
           <SwiperSlide key={contents.id}>
             <div>
               <Link to={`${contents.src.quickslide}/${contents.id}`}>

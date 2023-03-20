@@ -18,7 +18,7 @@ SwiperCore.use([Navigation, Pagination, A11y]);
 export default function MainPageSlide() {
   const baseUrl = '../src/assets/images/'; // 경로 설정
 
-  const FilterData = useDataFilter();
+  const FilterData = useDataFilter('slide');
 
   return (
     <>

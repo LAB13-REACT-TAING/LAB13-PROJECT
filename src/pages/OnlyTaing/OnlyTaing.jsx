@@ -5,31 +5,15 @@ import { Link } from 'react-router-dom';
 import 'swiper/swiper.css';
 import 'swiper/css/navigation';
 import './OnlyTaing.css';
-import { useReadData } from '../../utils/firebase/index';
+import useDataFilter from '../../hooks/useDataFilter';
 
 SwiperCore.use([Navigation, Pagination, A11y]);
 
 export default function OnlyTaing() {
   const baseUrl = '../src/assets/images/'; // 경로 설정
-  const [filterData, setfilterData] = useState([]);
-  const { readData, data, isLoading, error } = useReadData('image');
-  useEffect(() => {
-    (async () => {
-      if (!data) {
-        await readData();
-      }
-    })();
 
-    if (data) {
-      localStorage.setItem('onlyState', JSON.stringify({ image: data }));
-      const records = JSON.parse(localStorage.getItem('onlyState'));
-      const datas = records?.image?.filter(item => {
-        return item.src?.only !== undefined;
-      });
+  const FilterData = useDataFilter('only');
 
-      setfilterData(datas);
-    }
-  }, [data, readData]);
   return (
     <>
       <div>
@@ -51,7 +35,7 @@ export default function OnlyTaing() {
         slidesPerGroup={6}
         navigation
       >
-        {filterData?.map(contents => (
+        {FilterData?.map(contents => (
           <SwiperSlide key={contents.id}>
             <div>
               <Link to={`${contents.src.only}/${contents.id}`}>
