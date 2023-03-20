@@ -5,31 +5,20 @@ import { Link } from 'react-router-dom';
 import './MainPageSlide.css';
 import 'swiper/swiper.css';
 import 'swiper/css/navigation';
-import { useReadData } from '../../utils/firebase/index';
 import QuickVodSlide from '../QuickVodSlide/QuickVodSlide';
 import PopularProgramSlide from '../PopularProgramSlide/PopularProgramSlide';
 import LiveChannel from '../LiveChannel/LiveChannel';
 import OnlyTaing from '../OnlyTaing/OnlyTaing';
 import Advertisement from '../Advertisement/Advertisement';
 import EventSlide from '../EventSlide/EventSlide';
+import useDataFilter from '../../hooks/useDataFilter';
 
 SwiperCore.use([Navigation, Pagination, A11y]);
 
 export default function MainPageSlide() {
-  const [filterData, setfilterData] = useState([]);
-  const { readData, data, isLoading, error } = useReadData('image');
   const baseUrl = '../src/assets/images/'; // 경로 설정
 
-  async function handleReadData() {
-    // 모든 데이터를 가져옵니다.
-    await readData();
-  }
-  // 필요한 데이터만 뽑기
-  useEffect(() => {
-    readData();
-    const result = data?.filter(ele => ele.src.slide);
-    setfilterData(result);
-  }, []);
+  const FilterData = useDataFilter();
 
   return (
     <>
@@ -45,15 +34,15 @@ export default function MainPageSlide() {
           style={{
             'margin-bottom': '36px',
             'margin-left': '44px',
-            'margin-top': '10px',
+            'padding-top': '10px',
           }}
           spaceBetween={10}
           slidesPerView={7.4}
           slidesPerGroup={6}
           navigation
         >
-          {filterData?.map(contents => (
-            <SwiperSlide>
+          {FilterData?.map(contents => (
+            <SwiperSlide key={contents.id}>
               <div>
                 <Link to={`${contents.src.slide}/${contents.id}`}>
                   <img
