@@ -31,7 +31,9 @@ export function SignUpRegForm() {
   };
 
   const onBlurPasswordHandler = () => {
-    if (
+    if (password === '') {
+      setPasswordError(true);
+    } else if (
       !/^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[~!@#$%^&*])[a-zA-Z0-9~!@#$%^&*]{8,15}$/.test(
         password,
       )
@@ -72,7 +74,13 @@ export function SignUpRegForm() {
           onBlur={onBlurPasswordHandler}
         />
         {passwordError ? (
-          <p>입력한 내용이 없어요.</p>
+          password === '' ? (
+            <p>입력한 내용이 없어요.</p>
+          ) : (
+            <p>
+              영문, 숫자, 특수문자 (~!@#$%^&*) 조합 8~15 자리 로 입력해주세요.
+            </p>
+          )
         ) : (
           <p>영문, 숫자, 특수문자(~!@#$%^&*) 조합 8~15 자리</p>
         )}
