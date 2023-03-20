@@ -25,13 +25,12 @@ body {
     'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
     sans-serif;
   /* background-color: #fff; */
-  background-color: var(--black);
 }
+
 /* 헤더 스타일 적용을 위한 임시방편 */
-body,
-html {
-  background: url('@/assets/icons/TVING.svg') no-repeat;
-  height: 10000px;
+body {
+  background-color: var(--gray-200);
+  min-height: 100vh;
 }
 
 /* 유연한 미디어 */
