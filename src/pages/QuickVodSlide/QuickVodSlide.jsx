@@ -11,38 +11,51 @@ import { useReadData } from '../../utils/firebase/index';
 SwiperCore.use([Navigation, Pagination, A11y]);
 
 export default function QuickVodSlide() {
-  const [VODData, setVODData] = useState([]);
-  const { readData, data, isLoading, error } = useReadData('image');
   const baseUrl = '../src/assets/images/'; // 경로 설정
-
-  async function handleReadData() {
-    // 모든 데이터를 가져옵니다.
-    await readData();
-  }
-  // 필요한 데이터만 뽑기
+  const [filterData, setfilterData] = useState([]);
+  const { readData, data, isLoading, error } = useReadData('image');
   useEffect(() => {
-    readData();
-    const result = data?.filter(ele => ele.src.quickslide);
-    setVODData(result);
-  }, []);
+    (async () => {
+      if (!data) {
+        await readData();
+      }
+    })();
+
+    if (data) {
+      localStorage.setItem('quickState', JSON.stringify({ image: data }));
+      const records = JSON.parse(localStorage.getItem('quickState'));
+      const datas = records?.image?.filter(item => {
+        return item.src?.quickslide !== undefined;
+      });
+
+      setfilterData(datas);
+    }
+  }, [data, readData]);
 
   return (
     <>
       <div>
-        <h2 style={{ 'margin-left': '60px', 'margin-bottom': '8px' }}>
+        <h2
+          style={{ 'margin-left': '60px', 'margin-bottom': '8px' }}
+          className="list_title"
+        >
           Quick VOD
         </h2>
       </div>
 
       <Swiper
-        style={{ 'margin-bottom': '36px', 'margin-left': '44px' }}
+        style={{
+          'margin-bottom': '36px',
+          'margin-left': '44px',
+          'padding-top': '10px',
+        }}
         spaceBetween={10}
         slidesPerView={5.2}
         slidesPerGroup={5}
         navigation
       >
-        {VODData?.map(contents => (
-          <SwiperSlide>
+        {filterData?.map(contents => (
+          <SwiperSlide key={contents.id}>
             <div>
               <Link to={`${contents.src.quickslide}/${contents.id}`}>
                 <img

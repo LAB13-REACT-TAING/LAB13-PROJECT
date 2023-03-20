@@ -1,58 +1,72 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import React, { useEffect, useState } from 'react';
 import SwiperCore, { Navigation, Pagination, A11y } from 'swiper';
-import styles from './LiveChannel.module.css';
+import { Link } from 'react-router-dom';
 import 'swiper/swiper.css';
 import 'swiper/css/navigation';
-
-import liveChannel01 from '../../assets/images/liveframe01_02.jpg';
-import liveChannel02 from '../../assets/images/liveframe02_02.jpg';
-import liveChannel03 from '../../assets/images/liveframe03_02.jpg';
-import liveChannel04 from '../../assets/images/liveframe04_02.jpg';
-import liveChannel05 from '../../assets/images/liveframe05_02.jpg';
-import liveChannel06 from '../../assets/images/liveframe06_02.jpg';
+import './LiveChannel.css';
+import { useReadData } from '../../utils/firebase/index';
 
 SwiperCore.use([Navigation, Pagination, A11y]);
 
 export default function LiveChannel() {
+  const [filterData, setfilterData] = useState([]);
+  const { readData, data, isLoading, error } = useReadData('image');
+  const baseUrl = '../src/assets/images/'; // 경로 설정
+  useEffect(() => {
+    (async () => {
+      if (!data) {
+        await readData();
+      }
+    })();
+
+    if (data) {
+      localStorage.setItem('LiveState', JSON.stringify({ image: data }));
+      const records = JSON.parse(localStorage.getItem('LiveState'));
+      const datas = records?.image?.filter(item => {
+        return item.src?.live !== undefined;
+      });
+
+      setfilterData(datas);
+    }
+  }, [data, readData]);
+
   return (
     <>
       <div>
         <h2
-          style={{ 'margin-left': '60px', 'margin-bottom': '12px' }}
-          className={styles.list_title}
+          style={{ 'margin-left': '60px', 'margin-bottom': '8px' }}
+          className="list_title"
         >
           인기 LIVE 채널
         </h2>
       </div>
 
       <Swiper
-        style={{ 'margin-bottom': '36px' }}
+        style={{
+          'margin-bottom': '36px',
+          'margin-left': '44px',
+          'padding-top': '10px',
+        }}
         spaceBetween={10}
         slidesPerView={5.2}
         slidesPerGroup={5}
         navigation
         pagination={{ clickable: true }}
       >
-        <SwiperSlide style={{ 'margin-left': '40px' }}>
-          <img src={liveChannel01} alt="이미지 사진" />
-        </SwiperSlide>
-
-        <SwiperSlide style={{ 'margin-right': '4px' }}>
-          <img src={liveChannel02} alt="이미지 사진" />
-        </SwiperSlide>
-        <SwiperSlide style={{ 'margin-right': '0' }}>
-          <img src={liveChannel03} alt="이미지 사진" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={liveChannel04} alt="이미지 사진" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={liveChannel05} alt="이미지 사진" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={liveChannel06} alt="이미지 사진" />
-        </SwiperSlide>
+        {filterData?.map(contents => (
+          <SwiperSlide key={contents.id}>
+            <div>
+              <Link to={`${contents.src.live}/${contents.id}`}>
+                <img
+                  src={`${baseUrl}${contents.src.live}.jpg`}
+                  alt={`${contents.name}`}
+                />
+                <p className="contentsName">{contents.name}</p>
+              </Link>
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );

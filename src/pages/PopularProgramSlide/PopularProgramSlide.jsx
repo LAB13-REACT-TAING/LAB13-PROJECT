@@ -4,26 +4,18 @@ import SwiperCore, { Navigation, Pagination, A11y } from 'swiper';
 import { Link } from 'react-router-dom';
 import 'swiper/swiper.css';
 import 'swiper/css/navigation';
-import { useReadData } from '../../utils/firebase/index';
 import './PopularProgramSlide.css';
+import useDataFilter from '../../hooks/useDataFilter';
 
 SwiperCore.use([Navigation, Pagination, A11y]);
 
 export default function PopularProgramSlide() {
-  const [filterData, setfilterData] = useState([]);
-  const { readData, data, isLoading, error } = useReadData('image');
   const baseUrl = '../src/assets/images/'; // 경로 설정
 
-  async function handleReadData() {
-    // 모든 데이터를 가져옵니다.
-    await readData();
-  }
-  // 필요한 데이터만 뽑기
-  useEffect(() => {
-    readData();
-    const result = data?.filter(ele => ele.src.slide);
-    setfilterData(result);
-  }, []);
+  const numberUrl = '../src/assets/images/numbers/';
+
+  const FilterData = useDataFilter();
+  const test = 1;
 
   return (
     <div className="swiper-title">
@@ -31,31 +23,36 @@ export default function PopularProgramSlide() {
         style={{ 'margin-left': '60px', 'margin-bottom': '8px' }}
         className="list_title"
       >
-        티빙에서 꼭 봐야하는 콘텐츠
+        실시간 인기 프로그램
       </h2>
 
       <Swiper
-        style={{ 'margin-bottom': '36px', 'margin-left': '44px' }}
+        style={{
+          'margin-bottom': '36px',
+          'margin-left': '44px',
+          'padding-top': '10px',
+        }}
         spaceBetween={10}
         slidesPerView={7.4}
         slidesPerGroup={6}
         navigation
       >
-        {filterData?.map(contents => (
-          <SwiperSlide>
+        {FilterData?.map(contents => (
+          <SwiperSlide key={contents.id}>
             <div>
               <Link to={`${contents.src.slide}/${contents.id}`}>
                 <img
                   src={`${baseUrl}${contents.src.slide}.jpg`}
                   alt={`${contents.name}`}
                 />
-
-                <img
-                  style={{ 'margin-top': '-24px' }}
-                  src="/src/assets/images/numbers/three.png"
-                  alt="숫자 사진"
-                />
-                <p className="contentsName">{contents.name}</p>
+                <p className="text-title">
+                  <img
+                    style={{ 'margin-top': '-24px' }}
+                    src={`${numberUrl}${test}.png`}
+                    alt="숫자 사진"
+                  />
+                  <span className="contentsName">{contents.name}</span>
+                </p>
               </Link>
             </div>
           </SwiperSlide>
