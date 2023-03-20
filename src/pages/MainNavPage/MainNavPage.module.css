@@ -1,18 +1,10 @@
-/* 오타수정용 커밋 */
-
 .container {
   box-sizing: border-box;
-  padding: 20px;
+  background: black;
 }
 
 .container * {
   box-sizing: inherit;
-}
-
-.swiper {
-  width: 100%;
-  height: calc(100vh - 100px);
-  background: #010101;
 }
 
 .swiper div[role="button"] {
@@ -64,7 +56,7 @@
   line-height: 160%;
 }
 
-.swiperSlide a{
+.contents_button{
   width: 10rem;
   height: 4rem;
   line-height: 4rem;
