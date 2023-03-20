@@ -17,4 +17,8 @@ export function SignUpButton() {
   return (
     <div>
       <button type="button" disabled={buttonActive}>
-
+        가입하기
+      </button>
+    </div>
+  );
+}
