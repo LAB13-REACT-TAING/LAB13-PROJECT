@@ -1,0 +1,85 @@
+.findId {
+    background-color: black;
+    color: var(--white);
+    text-align: center;
+    width: 732px;
+    margin: 0 auto;
+}
+
+.findId button {
+    width: 732px;
+    height: 86px;
+    border-radius: 4px;
+    font-size: var(--text-md);
+    border: none;
+    font-weight: 600;
+    line-height: 42.65px;
+}
+
+.id {
+    font-size: var(--text-xl);
+    line-height: 53.06px;
+    margin-bottom: 60px;
+}
+
+.find,
+.email {
+    font-size: var(--text-lg);
+    line-height: 42.65px;
+}
+
+.emailInput {
+    display: block;
+    margin: 0 auto;
+    background-color: var(--brand-dark-bg-2);
+    font-size: var(--text-lg);
+    width: 732px;
+    padding: 25.5px 0 25.5px 24px;
+    border: none;
+    box-sizing: border-box;
+}
+
+.confirm {
+    color: var(--gray-400);
+    background-color: var(--gray-700);
+
+}
+
+.email,
+.auth {
+    color: var(--gray-400);
+}
+
+.line {
+    display: flex;
+    align-items: center;
+    color: var(--gray-200);
+}
+
+.line::before {
+    flex-grow: 1;
+    content: " ";
+    background: var(--white);
+    height: 1px;
+
+}
+
+.line::after {
+    flex-grow: 1;
+    content: " ";
+    background: var(--white);
+    height: 1px;
+}
+
+.auth {
+    font-size: var(--text-md);
+    line-height: 31.99px;
+    margin-top: 4px;
+}
+
+.authButton {
+    background-color: var(--gray-100);
+    margin-top: 36px;
+
+
+}
