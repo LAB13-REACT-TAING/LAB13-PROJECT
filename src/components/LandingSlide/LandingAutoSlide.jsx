@@ -1,11 +1,13 @@
-import { useRef, useLayoutEffect } from 'react';
+import { useRef, useLayoutEffect, useState } from 'react';
 import gsap from 'gsap';
-import img from '../../assets/images/maknaeadeul_03.jpg';
 import style from './LandingAutoSlide.module.css';
+import useDataFilter from '../../hooks/useDataFilter';
 
 export default function LandingAutoSlide() {
+  const DataFilter = useDataFilter('rendingfunny');
+  const [data, setData] = useState([]);
   const firstSlid = useRef();
-  const laseSlide = useRef();
+  const lastSlide = useRef();
 
   useLayoutEffect(() => {
     gsap.to(firstSlid.current, {
@@ -17,7 +19,7 @@ export default function LandingAutoSlide() {
       },
       repeat: -1,
     });
-    gsap.to(laseSlide.current, {
+    gsap.to(lastSlide.current, {
       duration: 5,
       ease: 'none',
       x: '-=500',
@@ -26,23 +28,45 @@ export default function LandingAutoSlide() {
       },
       repeat: -1,
     });
-  }, []);
+
+    DataFilter.splice(3, 2);
+    DataFilter.shift(0);
+    setData(DataFilter);
+  }, [DataFilter]);
 
   return (
     <div>
       <div className={style.slide} ref={firstSlid}>
-        <img className={style.img} src={img} alt="이미지" />
-        <img className={style.img} src={img} alt="이미지" />
-        <img className={style.img} src={img} alt="이미지" />
-        <img className={style.img} src={img} alt="이미지" />
-        <img className={style.img} src={img} alt="이미지" />
+        {data.map(contents => {
+          const baseUrl = '../src/assets/images/';
+          const src = `${baseUrl}${contents.src.rendingfunny}.jpg`;
+          return (
+            <div className={style.wrapper}>
+              <img
+                key={contents.id}
+                className={style.img}
+                src={src}
+                alt={`${contents.name}`}
+              />
+            </div>
+          );
+        })}
       </div>
-      <div className={style.slide} ref={laseSlide}>
-        <img className={style.img} src={img} alt="이미지" />
-        <img className={style.img} src={img} alt="이미지" />
-        <img className={style.img} src={img} alt="이미지" />
-        <img className={style.img} src={img} alt="이미지" />
-        <img className={style.img} src={img} alt="이미지" />
+      <div className={style.slide} ref={lastSlide}>
+        {DataFilter.reverse().map(contents => {
+          const baseUrl = '../src/assets/images/';
+          const src = `${baseUrl}${contents.src.rendingfunny}.jpg`;
+          return (
+            <div className={style.wrapper}>
+              <img
+                key={contents.id}
+                className={style.img}
+                src={src}
+                alt={`${contents.name}`}
+              />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
