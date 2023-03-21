@@ -18,13 +18,8 @@ export default function AutoSlide() {
         const baseUrl = '../src/assets/images/';
         const src = `${baseUrl}${contents.src.rendingfunny}.jpg`;
         return (
-          <div className={style.wrapper}>
-            <img
-              key={contents.id}
-              className={style.img}
-              src={src}
-              alt={`${contents.name}`}
-            />
+          <div key={contents.id} className={style.wrapper}>
+            <img className={style.img} src={src} alt={`${contents.name}`} />
           </div>
         );
       })}
