@@ -1,15 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from '@components/Header/Header';
 import Footer from '@components/Footer/Footer';
-import Test from '@components/Test/Test';
+import SearchForm from './pages/SearchForm/SearchForm';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
         <Routes>
-          <Route path="/hello" element={<Test />} />
+          <Route path="/search" element={<SearchForm />} />
         </Routes>
         <Footer />
       </BrowserRouter>
