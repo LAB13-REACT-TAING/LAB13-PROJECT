@@ -57,7 +57,7 @@ function Footer() {
         </section>
       </footer>
       <button type="button" onClick={onClickToggleHandler}>
-        Login State Test + PR 수정 다시 테스트
+        Login State Test
       </button>
     </>
   );
