@@ -1,52 +1,40 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/mouse-events-have-key-events */
 import style from '@components/Header/Aside.module.css';
 import { useState } from 'react';
-// eslint-disable-next-line no-unused-vars
 import { Search, Profile } from '@components';
 
-export function Aside() {
-  const [toggle, setToggle] = useState(false);
-  const [icon, setIcon] = useState(false);
-  const [show, setShow] = useState(false);
+export function Aside({ onClickModalHandler }) {
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isProfileHovered, setIsProfileHovered] = useState(false);
 
-  const onClickSearchHandler = () => {
-    setToggle(!toggle);
-    setIcon(!icon);
-  };
-  const onClickMemberHandler = () => {
-    setShow(!show);
+  const toggleSearch = () => {
+    setIsSearchOpen(prevState => !prevState);
   };
 
-  const buttonClass = icon ? `${style.closeBtn}` : `${style.searchBtn}`;
-
-  const onMouseEnterHandler = () => {
-    setShow(true);
+  const toggleProfileHover = () => {
+    setIsProfileHovered(prevState => !prevState);
   };
 
-  const onMouseLeaveHandler = () => {
-    setShow(false);
-  };
+  const searchButtonClass = isSearchOpen ? style.closeBtn : style.searchBtn;
 
   return (
     <aside className={style.aside}>
-      {toggle === true && <Search />}
+      {isSearchOpen && <Search />}
       <button
-        onClick={onClickSearchHandler}
+        onClick={toggleSearch}
         type="button"
         aria-label="검색"
-        className={buttonClass}
+        className={searchButtonClass}
       />
       <div
-        onMouseEnter={onMouseEnterHandler}
-        onMouseLeave={onMouseLeaveHandler}
+        onMouseEnter={toggleProfileHover}
+        onMouseLeave={toggleProfileHover}
         className={style.member}
       />
       <Profile
-        show={show}
-        onMouseEnter={onMouseEnterHandler}
-        onMouseLeave={onMouseLeaveHandler}
+        show={isProfileHovered}
+        onClickModalHandler={onClickModalHandler}
+        onMouseEnter={toggleProfileHover}
+        onMouseLeave={toggleProfileHover}
       />
     </aside>
   );
