@@ -42,6 +42,11 @@ export default function UseDataMain() {
         slidesPerView={1}
         spaceBetween={0}
         speed={400}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
         loop
         navigation
         pagination={{ clickable: true }}
