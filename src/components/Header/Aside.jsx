@@ -21,6 +21,14 @@ export function Aside() {
 
   const buttonClass = icon ? `${style.closeBtn}` : `${style.searchBtn}`;
 
+  const onMouseEnterHandler = () => {
+    setShow(true);
+  };
+
+  const onMouseLeaveHandler = () => {
+    setShow(false);
+  };
+
   return (
     <aside className={style.aside}>
       {toggle === true && <Search />}
@@ -30,9 +38,16 @@ export function Aside() {
         aria-label="검색"
         className={buttonClass}
       />
-      <div onClick={onClickMemberHandler} className={style.member}>
-        {show === true && <Profile />}
-      </div>
+      <div
+        onMouseEnter={onMouseEnterHandler}
+        onMouseLeave={onMouseLeaveHandler}
+        className={style.member}
+      />
+      <Profile
+        show={show}
+        onMouseEnter={onMouseEnterHandler}
+        onMouseLeave={onMouseLeaveHandler}
+      />
     </aside>
   );
 }
