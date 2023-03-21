@@ -1,22 +1,20 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable react/prop-types */
 import style from '@components/Header/Profile.module.css';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { Logout } from './Logout';
 
 export function Profile({
-  onClickSearchHandler,
   show,
   onMouseEnter,
   onMouseLeave,
+  onClickModalHandler,
 }) {
-  const [logout, setLogout] = useState(false);
-
-  const onClickLogoutHandler = e => {
-    e.stopPropagation();
-    setLogout(!logout);
+  const onClickLogout = () => {
+    onClickModalHandler();
   };
 
-  const profileClass = show ? `${style.my}` : `${style.my} ${style.hidden}`;
+  const profileClass = `${style.my} ${show ? '' : style.hidden}`;
 
   return (
     <div
@@ -39,8 +37,7 @@ export function Profile({
         <li>이용권</li>
         <li>쿠폰등록</li>
         <li>고객센터</li>
-        <li onClick={onClickLogoutHandler}>로그아웃</li>
-        {logout === true && <Logout />}
+        <li onClick={onClickLogout}>로그아웃</li>
       </ul>
     </div>
   );
