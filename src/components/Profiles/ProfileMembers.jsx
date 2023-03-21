@@ -1,13 +1,24 @@
+import { array, object } from 'prop-types';
+import { useEffect } from 'react';
+import { ProfileMemberList } from '@components';
 import style from './ProfileMembers.module.css';
 
-export function ProfileMembers() {
+export function ProfileMembers({
+  profileData1,
+  profileData2,
+  profileData3,
+  profileData4,
+  profileData5,
+}) {
   return (
     <>
       <div className={style.photowrap}>
         <ul className={style.photocontainer}>
-          <li>프로필1</li>
-          <li>프로필2</li>
-          <li>프로필3</li>
+          <ProfileMemberList profileData={profileData1} />
+          <ProfileMemberList profileData={profileData2} />
+          <ProfileMemberList profileData={profileData3} />
+          <ProfileMemberList profileData={profileData4} />
+          <ProfileMemberList profileData={profileData5} />
         </ul>
       </div>
       <div className={style.buttonwrap}>
@@ -21,3 +32,11 @@ export function ProfileMembers() {
     </>
   );
 }
+
+ProfileMembers.propTypes = {
+  profileData1: array,
+  profileData2: array,
+  profileData3: array,
+  profileData4: array,
+  profileData5: array,
+};
