@@ -1,6 +1,6 @@
-import style from './Email.module.css';
+import style from './EmailInput.module.css';
 
-export default function Email() {
+export default function EmailInput() {
   return (
     <fieldset className={style.email}>
       <h3 className={style.title}>이메일로 찾기</h3>
