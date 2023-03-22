@@ -110,9 +110,9 @@ export function ProfileMembers({
         <button className={style.buttonmodify} type="button">
           프로필 편집
         </button>
-        <button className={style.buttoncomplete} type="button">
+        {/* <button className={style.buttoncomplete} type="button">
           완료
-        </button>
+        </button> */}
       </div>
     </>
   );
