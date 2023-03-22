@@ -1,4 +1,7 @@
-import { useState } from 'react';
+/* eslint-disable no-nested-ternary */
+import { atom, useRecoilState } from 'recoil';
+import { useState, useEffect } from 'react';
+import { signUpRequiredState } from '../../@store/signUpRequiredState';
 
 export function SignUpRegForm() {
   const [email, setEmail] = useState('');
@@ -8,6 +11,9 @@ export function SignUpRegForm() {
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [passwordConfirmError, setPasswordConfirmError] = useState(false);
+
+  const [signUpRequired, setSignUpRequired] =
+    useRecoilState(signUpRequiredState);
 
   const onChangeEmailHandler = e => {
     setEmail(e.target.value);
@@ -39,14 +45,10 @@ export function SignUpRegForm() {
       )
     ) {
       setPasswordError(true);
+    } else {
+      setPasswordError(false);
     }
   };
-
-  /* const onBlurPasswordConfirmHandler = () => {
-    if (passwordConfirm === '') {
-      setPasswordConfirmError(true);
-    }
-  }; */
 
   const onBlurPasswordConfirmHandler = () => {
     if (passwordConfirm === '') {
@@ -58,11 +60,23 @@ export function SignUpRegForm() {
     }
   };
 
+  useEffect(() => {
+    setSignUpRequired(prevState => ({
+      ...prevState,
+      userEmail: !emailError,
+      userPw: !passwordError && password === passwordConfirm, // add userPw to the state
+    }));
+  }, [emailError, passwordError, passwordConfirm, setSignUpRequired]);
+
+  // 처음 렌더링시 이메일 입력x -> true..?
+  // 비밀번호 유효성 통과 -> 가입하기 활성화..? false...? why..
+
   return (
     <form>
       <div>
-        <label htmlFor="userEmail" required />
+        <label htmlFor="userEmail" />
         <input
+          required
           type="text"
           id="userEmail"
           placeholder="이메일"
@@ -73,8 +87,9 @@ export function SignUpRegForm() {
         {emailError && <p>입력한 내용이 없어요.</p>}
       </div>
       <div>
-        <label htmlFor="userPassword" required />
+        <label htmlFor="userPassword" />
         <input
+          required
           type="text"
           id="userPassword"
           placeholder="비밀번호"
@@ -96,8 +111,9 @@ export function SignUpRegForm() {
         )}
       </div>
       <div>
-        <label htmlFor="userPasswordConfirm" required />
+        <label htmlFor="userPasswordConfirm" />
         <input
+          required
           type="text"
           id="userPasswordConfirm"
           placeholder="비밀번호 확인"
