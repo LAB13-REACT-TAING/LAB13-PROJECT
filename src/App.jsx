@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from '@components/Header/Header';
 import Footer from '@components/Footer/Footer';
 import MainNavPage from '@pages/MainNavPage/MainNavPage';
+import LandingButtonPage from '@pages/LandingButtonPage/LandingButtonPage';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/mainnavpage" element={<MainNavPage />} />
+          <Route path="/landingbuttonpage" element={<LandingButtonPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>
