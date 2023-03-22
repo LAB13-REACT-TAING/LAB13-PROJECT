@@ -1,0 +1,29 @@
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 526px;
+    height: 192px;
+    background-color: var(--brand-dark-bg-2);
+    border-radius: 4px;
+    color: var(--white);
+    font-size: var(--text-md);
+    line-height: 34.12px;
+    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    z-index: 999;
+}
+
+.button {
+    background-color: inherit;
+    color: var(--gray-300);
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: 700;
+    padding: 16px 60px;
+}
