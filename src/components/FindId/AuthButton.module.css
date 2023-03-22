@@ -19,7 +19,7 @@
 }
 
 .button {
-    background-color: var(--white);
+    background-color: var(--gray-200);
     font-size: var(--text-lg);
     font-weight: 600;
     line-height: 42.65px;
@@ -28,4 +28,8 @@
     width: 732px;
     height: 86px;
     cursor: pointer;
+}
+
+.button:hover {
+    background-color: var(--white);
 }
