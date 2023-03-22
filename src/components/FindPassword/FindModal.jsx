@@ -1,7 +1,7 @@
-import { bool } from 'prop-types';
+import { bool, string } from 'prop-types';
 import style from './FindModal.module.css';
 
-export default function FindModal({ closeModal }) {
+export default function FindModal({ closeModal, modalText }) {
   const onCloseHandler = () => {
     closeModal(false);
   };
@@ -9,9 +9,7 @@ export default function FindModal({ closeModal }) {
   return (
     <div className={style.bg}>
       <div className={style.modal}>
-        <p className={style.text}>
-          해당 이메일로 비밀번호 재설정 이메일을 전송하였습니다.
-        </p>
+        <p className={style.text}>{modalText}</p>
         <button onClick={onCloseHandler} className={style.button} type="button">
           확인
         </button>
@@ -21,5 +19,6 @@ export default function FindModal({ closeModal }) {
 }
 
 FindModal.propType = {
-    closeModal: bool,
+  closeModal: bool,
+  modalText: string,
 };
