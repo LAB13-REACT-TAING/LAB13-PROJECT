@@ -10,7 +10,7 @@ const Worker = () => {
 export default function SearchForm() {
   const inputFocus = useRef(null);
 
-  // const listData = useDataList();
+  const listData = useDataList();
 
   const [names, setNames] = useState(() => {
     return Worker();
@@ -32,10 +32,8 @@ export default function SearchForm() {
     }
   };
 
-  console.log(addvalue);
   useEffect(() => {
     inputFocus.current.focus();
-
     document.body.style = `background-color: black; overflow: hidden;`;
     // return (document.body.style = `overflow: auto`);
   }, []);
@@ -90,14 +88,14 @@ export default function SearchForm() {
         <ul>
           <h2 className={styles.search_popular}>실시간 인기 검색어</h2>
 
-          {/* {listData?.map((contents, index) => (
+          {listData?.map((contents, index) => (
             <li key={contents.id}>
               <button type="button" className={styles.search_list_button}>
                 <span>{index + 1}</span>
                 <h3>{contents.name}</h3>
               </button>
             </li>
-          ))} */}
+          ))}
         </ul>
       </div>
     </div>
