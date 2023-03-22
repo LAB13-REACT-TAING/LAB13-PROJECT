@@ -1,16 +1,20 @@
+import { useRecoilState } from 'recoil';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import style from './EmailInput.module.css';
+import { loginInfo } from '../../@store/loginInfo';
 
 export default function EmailInput() {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useRecoilState(loginInfo);
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
+  const navigateToFindIdResult = () => {
+    navigate('/findidresult');
+  };
   const onChangeHandler = e => {
     setEmail(e.target.value);
     setIsVisible(true);
-  };
-  const onClickHandler = () => {
-    alert('체크');
   };
   const onResetHandler = () => {
     setEmail('');
@@ -56,7 +60,7 @@ export default function EmailInput() {
       </div>
       <button
         disabled={!isVisible}
-        onClick={onClickHandler}
+        onClick={navigateToFindIdResult}
         className={style.button}
         type="submit"
       >
