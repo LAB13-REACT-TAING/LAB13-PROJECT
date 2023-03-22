@@ -27,9 +27,23 @@ export function SignUpCheckBox() {
 
   const onChangeCheckAllHandler = e => {
     const isAllChecked = e.target.checked;
-    isAllChecked
-      ? setCheckServiceList(checkServiceKey)
-      : setCheckServiceList([]);
+    if (isAllChecked) {
+      setCheckServiceList(checkServiceKey);
+      setRequiredState(current => ({
+        ...current,
+        checkServiceReq01: true,
+        checkServiceReq02: true,
+        checkServiceReq03: true,
+      }));
+    } else {
+      setCheckServiceList([]);
+      setRequiredState(current => ({
+        ...current,
+        checkServiceReq01: false,
+        checkServiceReq02: false,
+        checkServiceReq03: false,
+      }));
+    }
   };
 
   const onChangeCheckServiceHandler = e => {
