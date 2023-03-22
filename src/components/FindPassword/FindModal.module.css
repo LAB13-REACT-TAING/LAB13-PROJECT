@@ -22,10 +22,14 @@
     font-size: var(--text-md);
     line-height: 34.12px;
     text-align: center;
-    display: flex;
+    /* display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
+    justify-content: center; */
     z-index: 999;
+}
+
+.text {
+    padding: 38px 0;
 }
 
 .button {

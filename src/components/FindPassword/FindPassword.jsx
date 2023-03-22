@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useResetPassword } from '../../utils/firebase/auth/useResetPassword';
 import FindModal from './FindModal';
 import style from './FindPassword.module.css';
@@ -7,25 +7,23 @@ export default function FindPassword() {
   const [email, setEmail] = useState('');
   const [isVisible, setIsVisible] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(true);
 
   const message = {
     success: '해당 이메일로 비밀번호 재설정 이메일을 전송하였습니다.',
     fail: '이메일 정보를 찾을 수 없습니다. 이메일을 다시 입력 해주세요.',
   };
 
-  const {
-    resetPassword,
-    error: errorEmail,
-    user: userEmail,
-  } = useResetPassword();
+  const { resetPassword, error: errorEmail } = useResetPassword();
 
   useEffect(() => {
     if (errorEmail) {
+      setIsSuccess(false);
       console.log(errorEmail);
     } else if (!errorEmail) {
-      console.log(userEmail);
+      setIsSuccess(true);
     }
-  },[errorEmail, userEmail]);
+  }, [errorEmail]);
 
   const onChangeHandler = e => {
     setEmail(e.target.value);
@@ -86,12 +84,20 @@ export default function FindPassword() {
             </button>
           )}
         </div>
-        <button onClick={onClickHandler} className={style.button} type="submit">
+        <button
+          disabled={!isVisible}
+          onClick={onClickHandler}
+          className={style.button}
+          type="submit"
+        >
           확인
         </button>
       </form>
       {isModalOpen ? (
-        <FindModal modalText={message.success} closeModal={setIsModalOpen} />
+        <FindModal
+          modalText={isSuccess ? message.success : message.fail}
+          closeModal={setIsModalOpen}
+        />
       ) : null}
     </div>
   );
