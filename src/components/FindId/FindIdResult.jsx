@@ -1,6 +1,14 @@
+import { useRecoilValue } from 'recoil';
 import style from './FindIdResult.module.css';
+import { loginInfo } from '../../@store/loginInfo';
 
 export default function FindIdResult() {
+  let userEmail = useRecoilValue(loginInfo);
+  // 사용자 이메일 입력
+  const id = userEmail.split('@')[0].slice(3);
+  const mail = userEmail.split('@')[1];
+  userEmail = `***${id}@${mail}`;
+
   return (
     <div className={style.result}>
       <img
@@ -15,12 +23,7 @@ export default function FindIdResult() {
         <br />
         아이디 또는 이메일의 일부만 제공합니다.
       </p>
-      <input
-        value="hjh7814@naver.com"
-        className={style.input}
-        type="text"
-        readOnly
-      />
+      <input value={userEmail} className={style.input} type="text" readOnly />
       <p className={style.info}>
         ※ SNS 회원은 해당 SNS 아이디가 아닌 티빙 가입 시 등록한 이메일을
         알려드립니다.
