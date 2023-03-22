@@ -4,6 +4,7 @@ import { ProfileMemberList } from '@components';
 import { useRecoilState } from 'recoil';
 import { profileActive } from '../../@store/profileActive';
 import style from './ProfileMembers.module.css';
+import { useNavigate } from 'react-router';
 
 export function ProfileMembers({
   profileData1,
@@ -13,7 +14,7 @@ export function ProfileMembers({
   profileData5,
 }) {
   const [activePhoto, isActivePhoto] = useRecoilState(profileActive);
-
+  const movePage = useNavigate();
   const onClickChangeProfileHandler = e => {
     const profileName = e.target.name;
 
@@ -68,6 +69,10 @@ export function ProfileMembers({
         }));
         break;
     }
+
+    // 페이지 이동
+    // movePage('/test');
+    console.log('버튼클릭 종료');
   };
 
   return (
