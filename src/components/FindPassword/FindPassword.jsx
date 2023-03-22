@@ -5,21 +5,24 @@ import style from './FindPassword.module.css';
 
 export default function FindPassword() {
   const [email, setEmail] = useState('');
-  const [visible, setVisible] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { resetPassword } = useResetPassword('');
   const onChangeHandler = e => {
     setEmail(e.target.value);
-    setVisible(true);
+    setIsVisible(true);
   };
 
-  const onClickHandler = () => {
-    resetPassword(email).then(setModalOpen(true));
+  const onClickHandler = e => {
+    e.preventDefault();
+    setIsModalOpen(true);
+    resetPassword(email);
   };
+
   const onResetHandler = () => {
     setEmail('');
-    setVisible(false);
+    setIsVisible(false);
   };
 
   return (
@@ -41,7 +44,7 @@ export default function FindPassword() {
               placeholder="이메일"
             />
           </label>
-          {visible && (
+          {isVisible && (
             <button
               aria-label="초기화 버튼"
               className={style.reset}
@@ -67,7 +70,7 @@ export default function FindPassword() {
           확인
         </button>
       </form>
-      {modalOpen && <FindModal setModalOpen={setModalOpen} />}
+      {isModalOpen ? <FindModal closeModal={setIsModalOpen} /> : null}
     </div>
   );
 }
