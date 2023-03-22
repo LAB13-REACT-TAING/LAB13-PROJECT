@@ -15,9 +15,10 @@
   font-size: 2em;
   font-weight: 400;
   line-height: normal;
-  color: var(--gray-700);
+  color: white;
   border: none;
   padding: 16px 0 16px 0;
+  text-indent: 6px;
 }
 input:focus {
   outline: none;
@@ -43,6 +44,16 @@ input:focus {
   display: flex;
   position: relative;
 }
+.line {
+  display: block;
+  content: '';
+  width: 1px;
+  left: 740px;
+  background-color: var(--brand-dark-bg-2);
+  position: absolute;
+  height: 100%;
+}
+
 .search_title {
   width: 54%;
   color: var(--gray-200);
@@ -60,16 +71,6 @@ input:focus {
   cursor: pointer;
   color: var(--gray-300);
 }
-.line {
-  display: block;
-  content: '';
-  width: 1px;
-  left: 740px;
-  background-color: var(--brand-dark-bg-2);
-  position: absolute;
-  height: 100%;
-}
-
 .search_popular {
   color: var(--gray-200);
   font-family: 'Pretendard';
@@ -77,7 +78,6 @@ input:focus {
   font-size: 28px;
   line-height: 150%;
 }
-
 .search_list_button {
   cursor: pointer;
   background-color: transparent;
