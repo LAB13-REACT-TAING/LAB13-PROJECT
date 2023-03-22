@@ -9,12 +9,8 @@
 .section {
   position: relative;
   width: 100%;
-  height: auto;
-}
-
-.section img {
-  width: 100%;
-  vertical-align: middle;
+  height: 912px;
+  background-color: var(--black);
 }
 
 .section_message {
@@ -33,17 +29,18 @@
   line-height: 150%;
 }
 
-.section_subtext{
-  color : var(--gray-400);
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.5rem;
-  line-height: 150%;
+.sectionimage {
+  position: absolute;
+  top: 27%;
+  left: 40%;
+  background: url('/src/assets/icons/Taing.svg');
+  width: 279px;
+  height: 110px;
 }
 
 .section_button {
   position: absolute;
-  top: 70%;
+  top: 60%;
   left: 32%;
   width: 100%;
 }
