@@ -13,9 +13,10 @@ export function useResetPassword() {
     try {
       const userEmail = await sendPasswordResetEmail(auth, email);
       setUser(userEmail);
+      setError(false);
       // eslint-disable-next-line no-shadow
     } catch (error) {
-      setError(error);
+      setError(true);
     } finally {
       setIsLoading(false);
     }

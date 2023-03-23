@@ -17,14 +17,18 @@ export default function FindPassword() {
   const { resetPassword, error: errorEmail } = useResetPassword();
 
   useEffect(() => {
-    if (errorEmail) {
+    console.log('최초 errorEmail:', errorEmail);
+    if (errorEmail === true) {
       console.log('에러가 있어서 isSuccess 변경');
+      console.log('errorEmail:', errorEmail);
       setIsSuccess(false);
-    } else {
+    } else if (errorEmail === false) {
       console.log('에러가 없어서 isSuccess 변경');
+      console.log('errorEmail:', errorEmail);
       setIsSuccess(true);
+    } else {
+      console.log('초기세팅');
     }
-    // 이 부분 물어봐야됨
   }, [errorEmail]);
 
   const onChangeHandler = e => {
