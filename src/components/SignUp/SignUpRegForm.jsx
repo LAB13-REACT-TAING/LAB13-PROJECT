@@ -2,10 +2,12 @@
 import { atom, useRecoilState } from 'recoil';
 import { useState, useEffect } from 'react';
 import { signUpRequiredState } from '../../@store/signUpRequiredState';
+import { signUpEmailState } from '../../@store/signUpEmailState';
+import { signUpPasswordState } from '../../@store/signUpPasswordState';
 
 export function SignUpRegForm() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useRecoilState(signUpEmailState);
+  const [password, setPassword] = useRecoilState(signUpPasswordState);
   const [passwordConfirm, setPasswordConfirm] = useState('');
 
   const [emailError, setEmailError] = useState(false);
@@ -64,12 +66,9 @@ export function SignUpRegForm() {
     setSignUpRequired(prevState => ({
       ...prevState,
       userEmail: !emailError,
-      userPw: !passwordError && password === passwordConfirm, // add userPw to the state
+      userPw: !passwordError && password === passwordConfirm,
     }));
-  }, [emailError, passwordError, passwordConfirm, setSignUpRequired]);
-
-  // 처음 렌더링시 이메일 입력x -> true..?
-  // 비밀번호 유효성 통과 -> 가입하기 활성화..? false...? why..
+  }, [emailError, passwordError, passwordConfirm, setSignUpRequired, password]);
 
   return (
     <form>
