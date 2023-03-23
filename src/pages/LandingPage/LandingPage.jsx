@@ -15,8 +15,9 @@ export default function LandingPage() {
     text: '최신, 인기 TV프로그램, 영화, 해외시리즈, 파라마운트+ 오리지널 및 독점',
   };
 
+
   return (
-    <div className={style.landing}>
+    <main className={style.landing}>
       <LandingSlideTitle
         title={mainTitle.title}
         boldText={mainTitle.boldText}
@@ -29,6 +30,6 @@ export default function LandingPage() {
         text={autoTitle.text}
       />
       <LandingAutoSlide />
-    </div>
+    </main>
   );
 }
