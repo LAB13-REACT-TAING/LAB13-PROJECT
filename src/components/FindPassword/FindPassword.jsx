@@ -31,17 +31,21 @@ export default function FindPassword() {
     }
   }, [errorEmail]);
 
+  useEffect(() => {
+    if (isModalOpen) {
+      setEmail('');
+      setIsVisible(false);
+    }
+  }, [isModalOpen]);
   const onChangeHandler = e => {
     setEmail(e.target.value);
     setIsVisible(true);
   };
 
-  const onClickHandler = e => {
+  const onClickHandler = async e => {
     e.preventDefault();
-    resetPassword(email);
+    await resetPassword(email);
     setIsModalOpen(true);
-    setEmail('');
-    setIsVisible(false);
   };
 
   const onResetHandler = () => {
