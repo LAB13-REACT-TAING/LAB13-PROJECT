@@ -1,4 +1,5 @@
 import { useRecoilValue } from 'recoil';
+import { useNavigate } from 'react-router-dom';
 import style from './FindIdResult.module.css';
 import { loginInfo } from '../../@store/loginInfo';
 

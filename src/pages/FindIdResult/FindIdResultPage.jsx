@@ -1,4 +1,4 @@
-import FindIdResult from '../../components/FindId/FindIdResult';
+import FindIdResult from '@components/FindId/FindIdResult';
 import style from './FindIdResultPage.module.css';
 
 export default function FindIdResultPage() {
