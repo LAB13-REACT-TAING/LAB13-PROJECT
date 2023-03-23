@@ -32,9 +32,3 @@
   top: 10%;
   right: 10%;
 }
-
-.svgimage {
-  background: url('/src/assets/icons/Squre.svg') no-repeat -22px -24px;
-  width: 28px;
-  height: 24px;
-}
