@@ -1,4 +1,5 @@
 // eslint-disable-next-line import/extensions
+export * from './FindPassword/FindPassword';
 export * from './SignIn/SignInButton';
 export * from './SignIn/SignInInfo';
 export * from './SignIn/SignInInputForm';
