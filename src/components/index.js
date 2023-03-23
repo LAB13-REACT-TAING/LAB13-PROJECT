@@ -1,4 +1,6 @@
 // eslint-disable-next-line import/extensions
+export * from './FindId/FindIdResult';
+export * from './FindId/FindId.jsx';
 export * from './FindPassword/FindPassword';
 export * from './SignIn/SignInButton';
 export * from './SignIn/SignInInfo';
