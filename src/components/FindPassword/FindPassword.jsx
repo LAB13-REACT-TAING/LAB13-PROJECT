@@ -18,11 +18,13 @@ export default function FindPassword() {
 
   useEffect(() => {
     if (errorEmail) {
+      console.log('에러가 있어서 isSuccess 변경');
       setIsSuccess(false);
-      console.log(errorEmail);
-    } else if (!errorEmail) {
+    } else {
+      console.log('에러가 없어서 isSuccess 변경');
       setIsSuccess(true);
     }
+    // 이 부분 물어봐야됨
   }, [errorEmail]);
 
   const onChangeHandler = e => {
