@@ -15,7 +15,6 @@ export default function LandingPage() {
     text: '최신, 인기 TV프로그램, 영화, 해외시리즈, 파라마운트+ 오리지널 및 독점',
   };
 
-
   return (
     <main className={style.landing}>
       <LandingSlideTitle

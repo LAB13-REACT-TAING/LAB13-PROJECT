@@ -8,8 +8,8 @@ import FindIdResultPage from '@pages/FindIdResult/FindIdResultPage';
 import FindPasswordPage from '@pages/FindPassword/FindPasswordPage';
 import Profiles from '@pages/Profiles/Profiles';
 import MainPageSlide from '@pages/MainPageSlide/MainPageSlide';
-import DetailPages from './pages/DetailPages/DetailPages';
 import LandingPage from '@pages/LandingPage/LandingPage';
+import DetailPages from './pages/DetailPages/DetailPages';
 
 function App() {
   return (
