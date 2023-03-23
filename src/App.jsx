@@ -14,6 +14,15 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
 import Header from '@pages/Header/Header';
 import Logout from '@components/Header/Logout';
+import SignIn from '@pages/SignIn/SignIn';
+import Test from '@components/Test/Test';
+import FindIdPage from '@pages/FindId/FindIdPage';
+import FindIdResultPage from '@pages/FindIdResult/FindIdResultPage';
+import FindPasswordPage from '@pages/FindPassword/FindPasswordPage';
+import Profiles from '@pages/Profiles/Profiles';
+import MainPageSlide from '@pages/MainPageSlide/MainPageSlide';
+import LandingPage from '@pages/LandingPage/LandingPage';
+import DetailPages from './pages/DetailPages/DetailPages';
 
 function App() {
   const [showLogout, setShowLogout] = useState(false);
@@ -35,7 +44,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
+        <Header onClickModalHandler={onClickModalHandler} />
         {showLogout && (
           <Logout
             onConfirm={handleLogoutConfirm}
@@ -55,7 +64,6 @@ function App() {
           <Route path="/findpassword" element={<FindPasswordPage />} />
         </Routes>
         <Footer />
-        <Header onClickModalHandler={onClickModalHandler} />
       </BrowserRouter>
     </div>
   );
