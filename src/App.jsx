@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from '@components/Header/Header';
+import { useState } from 'react';
+import Header from '@pages/Header/Header';
+import Logout from '@components/Header/Logout';
 import Footer from '@components/Footer/Footer';
 import SignIn from '@pages/SignIn/SignIn';
 import Test from '@components/Test/Test';
@@ -10,10 +12,6 @@ import Profiles from '@pages/Profiles/Profiles';
 import MainPageSlide from '@pages/MainPageSlide/MainPageSlide';
 import LandingPage from '@pages/LandingPage/LandingPage';
 import DetailPages from './pages/DetailPages/DetailPages';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
-import Header from '@pages/Header/Header';
-import Logout from '@components/Header/Logout';
 
 function App() {
   const [showLogout, setShowLogout] = useState(false);
@@ -42,6 +40,19 @@ function App() {
             onCancel={handleLogoutCancel}
           />
         )}
+        <Routes>
+          <Route path="/onboarding" element={<LandingPage />} />
+          <Route path="/findid" element={<FindIdPage />} />
+          <Route path="/findidresult" element={<FindIdResultPage />} />
+          <Route path="/hello" element={<SignIn />} />
+          <Route path="/test" element={<Test />} />
+          <Route path="/hello" element={<Test />} />
+          <Route path="/profiles" element={<Profiles />} />
+          <Route path="/main" exact element={<MainPageSlide />} />
+          <Route path="/detailPage01/:id" element={<DetailPages />} />
+          <Route path="/findpassword" element={<FindPasswordPage />} />
+        </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );
