@@ -1,5 +1,4 @@
 .title {
-  /* background-color: var(--black); */
   background-color: var(--black);
   max-height: 940px;
   padding: 52px 0 92px 0;
@@ -101,4 +100,12 @@ input:focus {
   font-size: 21px;
   line-height: 150%;
   color: var(--gray-300);
+}
+.contents {
+  display: flex;
+}
+.contentsName {
+  color: var(--gray-300);
+  font-size: 1.333rem;
+  font-weight: 400;
 }

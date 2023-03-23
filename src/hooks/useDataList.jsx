@@ -22,5 +22,5 @@ export default function useDataList() {
     }
   }, [data, readData]);
 
-  return filterData.slice(1, 10);
+  return filterData.slice(1, 11);
 }

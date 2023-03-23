@@ -5,26 +5,28 @@ import useDataList from '../../hooks/useDataList';
 
 export default function SearchForm() {
   const inputFocus = useRef(null);
+  const baseUrl = '../src/assets/images/'; // 경로 설정
 
   const listData = useDataList();
 
   const [name, setName] = useState({
-    name: '',
+    inputValue: '',
     id: 0,
   });
   const [listId, setListId] = useState(0);
   const [input, setInput] = useState([]);
+  const [filterData, setFilterData] = useState([]);
 
   const handleSubmit = e => {
     e.preventDefault();
     if (name === '') return;
 
     setInput(prevState => [...prevState, name]);
-    setListId(prev => prev + 1);
+    setListId(curr => curr + 1);
   };
 
   const HandleInputValue = e => {
-    setName({ id: listId, name: e.target.value });
+    setName({ id: listId, inputValue: e.target.value });
   };
 
   const AlldeleteHandler = () => {
@@ -37,6 +39,14 @@ export default function SearchForm() {
     console.log(newList);
     setInput(newList);
   };
+
+  useEffect(() => {
+    const filterList = listData.filter(contents =>
+      // console.log(name.inputValue, contents.name.includes(name.inputValue)),
+      contents.name.includes(name.inputValue),
+    );
+    setFilterData(filterList);
+  }, [name, listData]);
 
   useEffect(() => {
     inputFocus.current.focus();
@@ -75,38 +85,62 @@ export default function SearchForm() {
           </button>
         </label>
       </form>
-      <div className={styles.search_container}>
-        <ul className={styles.search_title}>
-          최근 검색어
-          <button type="button" onClick={AlldeleteHandler}>
-            전체지우기
-          </button>
-          {input?.map(data => {
-            return (
-              // eslint-disable-next-line react/no-array-index-key
-              <li key={data.id}>
-                {data.name}
-                <button type="button" id={data.id} onClick={deleteBtnHandler}>
-                  삭제버튼
+      {name.inputValue !== '' ? (
+        <div>
+          <ul className={styles.contents}>
+            {filterData?.map(contents => (
+              <li>
+                <img
+                  src={`${baseUrl}${contents.src.slide}.jpg`}
+                  alt={`${contents.name}`}
+                />
+                <p className={styles.contentsName}>{contents.name}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <div className={styles.search_container}>
+          <ul className={styles.search_title}>
+            최근 검색어
+            <button type="button" onClick={AlldeleteHandler}>
+              전체지우기
+            </button>
+            {input.length === 0 ? (
+              <li>검색 내역이 없습니다.</li>
+            ) : (
+              input?.map(data => {
+                return (
+                  // eslint-disable-next-line react/no-array-index-key
+                  <li key={data.id}>
+                    {data.inputValue}
+                    <button
+                      type="button"
+                      id={data.id}
+                      onClick={deleteBtnHandler}
+                    >
+                      삭제버튼
+                    </button>
+                  </li>
+                );
+              })
+            )}
+          </ul>
+          <p className={styles.line} />
+          <ul>
+            <h2 className={styles.search_popular}>실시간 인기 검색어</h2>
+
+            {listData?.map((contents, index) => (
+              <li key={contents.id}>
+                <button type="button" className={styles.search_list_button}>
+                  <span>{index + 1}</span>
+                  <h3>{contents.name}</h3>
                 </button>
               </li>
-            );
-          })}
-        </ul>
-        <p className={styles.line} />
-        <ul>
-          <h2 className={styles.search_popular}>실시간 인기 검색어</h2>
-
-          {listData?.map((contents, index) => (
-            <li key={contents.id}>
-              <button type="button" className={styles.search_list_button}>
-                <span>{index + 1}</span>
-                <h3>{contents.name}</h3>
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
