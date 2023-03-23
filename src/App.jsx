@@ -8,8 +8,8 @@ import FindIdResultPage from '@pages/FindIdResult/FindIdResultPage';
 import FindPasswordPage from '@pages/FindPassword/FindPasswordPage';
 import Profiles from '@pages/Profiles/Profiles';
 import MainPageSlide from '@pages/MainPageSlide/MainPageSlide';
+import LandingPage from '@pages/LandingPage/LandingPage';
 import DetailPages from './pages/DetailPages/DetailPages';
-
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
+          <Route path="/onboarding" element={<LandingPage />} />
           <Route path="/findid" element={<FindIdPage />} />
           <Route path="/findidresult" element={<FindIdResultPage />} />
           <Route path="/hello" element={<SignIn />} />
