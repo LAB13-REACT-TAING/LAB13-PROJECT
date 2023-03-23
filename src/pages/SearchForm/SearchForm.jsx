@@ -3,33 +3,39 @@ import { Link } from 'react-router-dom';
 import styles from './SearchForm.module.css';
 import useDataList from '../../hooks/useDataList';
 
-const Worker = () => {
-  return [];
-};
-
 export default function SearchForm() {
   const inputFocus = useRef(null);
 
   const listData = useDataList();
 
-  const [names, setNames] = useState(() => {
-    return Worker();
+  const [name, setName] = useState({
+    name: '',
+    id: 0,
   });
-  const [addvalue, setAddValue] = useState('');
+  const [listId, setListId] = useState(0);
+  const [input, setInput] = useState([]);
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (name === '') return;
+
+    setInput(prevState => [...prevState, name]);
+    setListId(prev => prev + 1);
+  };
 
   const HandleInputValue = e => {
-    setAddValue(e.target.value);
+    setName({ id: listId, name: e.target.value });
   };
-  console.log(names);
-  const clickHandler = () => {
-    setNames(prevState => {
-      return [addvalue, ...prevState];
-    });
+
+  const AlldeleteHandler = () => {
+    setInput([]);
   };
-  const handleOnKeyPress = e => {
-    if (e.key === 'Enter') {
-      clickHandler();
-    }
+
+  const deleteBtnHandler = e => {
+    console.log(typeof e.target.id);
+    const newList = input.filter(data => data.id !== Number(e.target.id));
+    console.log(newList);
+    setInput(newList);
   };
 
   useEffect(() => {
@@ -48,41 +54,44 @@ export default function SearchForm() {
         'margin-bottom': '93px',
       }}
     >
-      <label
-        htmlFor="search__id"
-        className={styles.label}
-        style={{
-          'margin-bottom': '80px',
-        }}
-      >
-        <input
-          id="search__id"
-          value={addvalue}
-          ref={inputFocus}
-          type="text"
-          placeholder="TV프로그램, 영화 제목 및 출연진으로 검색해보세요."
-          className={styles['main-image']}
-          onChange={HandleInputValue}
-          onKeyPress={handleOnKeyPress}
-        />
-        <button
-          type="button"
-          onClick={clickHandler}
-          className={styles.search_button}
+      <form onSubmit={handleSubmit}>
+        <label
+          htmlFor="search__id"
+          className={styles.label}
+          style={{
+            'margin-bottom': '80px',
+          }}
         >
-          검사
-        </button>
-      </label>
+          <input
+            id="search__id"
+            ref={inputFocus}
+            type="text"
+            placeholder="TV프로그램, 영화 제목 및 출연진으로 검색해보세요."
+            className={styles['main-image']}
+            onChange={HandleInputValue}
+          />
+          <button type="submit" className={styles.search_button}>
+            검사
+          </button>
+        </label>
+      </form>
       <div className={styles.search_container}>
         <ul className={styles.search_title}>
           최근 검색어
-          {names.length === 0 ? (
-            <li>검색내역이 없습니다</li>
-          ) : (
-            names.map((name, idx) => {
-              return <li key={names.idx}>{name}</li>;
-            })
-          )}
+          <button type="button" onClick={AlldeleteHandler}>
+            전체지우기
+          </button>
+          {input?.map(data => {
+            return (
+              // eslint-disable-next-line react/no-array-index-key
+              <li key={data.id}>
+                {data.name}
+                <button type="button" id={data.id} onClick={deleteBtnHandler}>
+                  삭제버튼
+                </button>
+              </li>
+            );
+          })}
         </ul>
         <p className={styles.line} />
         <ul>
