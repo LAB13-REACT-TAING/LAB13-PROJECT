@@ -1,9 +1,14 @@
+import { useResetRecoilState } from 'recoil';
 import { bool, string } from 'prop-types';
 import style from './FindModal.module.css';
+import { emailError } from '../../@store/emailError';
 
 export default function FindModal({ closeModal, modalText }) {
+  const resetError = useResetRecoilState(emailError);
+
   const onCloseHandler = () => {
     closeModal(false);
+    resetError();
   };
 
   return (
