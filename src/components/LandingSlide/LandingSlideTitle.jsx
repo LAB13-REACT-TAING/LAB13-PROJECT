@@ -8,7 +8,7 @@ export default function LandingSlideTitle({ title, boldText, text }) {
 
   useLayoutEffect(() => {
     gsap.context(() => {
-      gsap.fromTo('h2', { y: 50 }, { y: 0 });
+      gsap.fromTo('h2', { y: 50 }, { y: 0, duration: 1 });
       gsap.fromTo(
         'p',
         { y: 50 },

@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from '@components/Header/Header';
 import Footer from '@components/Footer/Footer';
 import Test from '@components/Test/Test';
-import LandingMainSlide from './components/LandingSlide/LandingMainSlide';
+import LandingPage from '@pages/LandingPage/LandingPage';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/hello" element={<LandingMainSlide />} />
+          <Route path="/onboarding" element={<LandingPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>
