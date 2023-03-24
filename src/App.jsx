@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Footer from '@components/Footer/Footer';
+import SearchForm from './pages/SearchForm/SearchForm';
 import { useState } from 'react';
 import Header from '@pages/Header/Header';
 import Logout from '@components/Header/Logout';
@@ -55,6 +57,7 @@ function App() {
           <Route path="/main" exact element={<MainPageSlide />} />
           <Route path="/detailPage01/:id" element={<DetailPages />} />
           <Route path="/findpassword" element={<FindPasswordPage />} />
+          <Route path="/search" element={<SearchForm />} />
         </Routes>
         <Footer />
       </BrowserRouter>
