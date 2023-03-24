@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Header from '@pages/Header/Header';
 import Logout from '@components/Header/Logout';
 import Footer from '@components/Footer/Footer';
+import MainNavPage from '@pages/MainNavPage/MainNavPage';
 import SignIn from '@pages/SignIn/SignIn';
 import Test from '@components/Test/Test';
 import FindIdPage from '@pages/FindId/FindIdPage';
@@ -41,6 +42,7 @@ function App() {
           />
         )}
         <Routes>
+          <Route path="/mainnavpage" element={<MainNavPage />} />
           <Route path="/onboarding" element={<LandingPage />} />
           <Route path="/findid" element={<FindIdPage />} />
           <Route path="/findidresult" element={<FindIdResultPage />} />
