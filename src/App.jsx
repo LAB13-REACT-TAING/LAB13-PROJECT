@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Footer from '@components/Footer/Footer';
+import SignUp from '@pages/SignUp/SignUp';
 import SearchForm from './pages/SearchForm/SearchForm';
 import { useState } from 'react';
 import Header from '@pages/Header/Header';
@@ -46,6 +47,7 @@ function App() {
           />
         )}
         <Routes>
+          <Route path="/hello" element={<SignUp />} />
           <Route path="/mainnavpage" element={<MainNavPage />} />
           <Route path="/detailpage" element={<DetailPage />} />
           <Route path="/landingbuttonpage" element={<LandingButtonPage />} />
