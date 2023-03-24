@@ -74,8 +74,8 @@ export function SignUpCheckBox() {
   };
 
   return (
-    <>
-      <div>
+    <div className={style.checkboxWrap}>
+      <div className={style.checkAll}>
         <input
           type="checkbox"
           id="checkAll"
@@ -155,7 +155,7 @@ export function SignUpCheckBox() {
             {checkService.checkServiceOpt05}
           </label>
         </li>
-        <li>
+        <li className={style.subUi}>
           <input
             type="checkbox"
             id="checkServiceOpt06"
@@ -167,7 +167,7 @@ export function SignUpCheckBox() {
             {checkService.checkServiceOpt06}
           </label>
         </li>
-        <li>
+        <li className={style.subUi}>
           <input
             type="checkbox"
             id="checkServiceOpt07"
@@ -180,6 +180,6 @@ export function SignUpCheckBox() {
           </label>
         </li>
       </ul>
-    </>
+    </div>
   );
 }

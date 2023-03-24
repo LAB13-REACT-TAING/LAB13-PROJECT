@@ -5,6 +5,7 @@ import { signUpRequiredState } from '../../@store/signUpRequiredState';
 import { signUpEmailState } from '../../@store/signUpEmailState';
 import { signUpPasswordState } from '../../@store/signUpPasswordState';
 import { useSignUp } from '../../utils/firebase/auth';
+import style from './SignUpButton.module.css';
 
 export function SignUpButton({ email, password }) {
   const [requiredState] = useRecoilState(signUpRequiredState);
@@ -36,8 +37,13 @@ export function SignUpButton({ email, password }) {
   }, [requiredState]);
 
   return (
-    <div>
-      <button type="button" disabled={buttonActive} onClick={onSignUp}>
+    <div className={style.signUpBtn}>
+      <button
+        className={style.btn}
+        type="button"
+        disabled={buttonActive}
+        onClick={onSignUp}
+      >
         가입하기
       </button>
     </div>

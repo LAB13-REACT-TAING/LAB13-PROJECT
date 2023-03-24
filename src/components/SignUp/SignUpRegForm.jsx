@@ -1,6 +1,7 @@
 /* eslint-disable no-nested-ternary */
 import { atom, useRecoilState } from 'recoil';
 import { useState, useEffect } from 'react';
+import style from './SignUpRegForm.module.css';
 import { signUpRequiredState } from '../../@store/signUpRequiredState';
 import { signUpEmailState } from '../../@store/signUpEmailState';
 import { signUpPasswordState } from '../../@store/signUpPasswordState';
@@ -71,8 +72,8 @@ export function SignUpRegForm() {
   }, [emailError, passwordError, passwordConfirm, setSignUpRequired, password]);
 
   return (
-    <form>
-      <div>
+    <form className={style.form}>
+      <div className={style.userEmail}>
         <label htmlFor="userEmail" />
         <input
           required
