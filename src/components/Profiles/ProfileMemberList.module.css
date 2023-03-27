@@ -41,7 +41,7 @@
 }
 
 .profileBackground {
-  background: url('../../assets/icons/sprites-icon.png') no-repeat -217px -360px;
+  background: url('/assets/icons/sprites-icon.png') no-repeat -217px -360px;
   z-index: 999;
   -webkit-user-drag: none;
 }

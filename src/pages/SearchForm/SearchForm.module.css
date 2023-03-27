@@ -30,7 +30,7 @@ input:focus {
   opacity: 1;
   width: 46px;
   height: 72px;
-  background-image: url(../../assets/icons/sprites-icon.png);
+  background-image: url(/assets/icons/sprites-icon.png);
   background-repeat: no-repeat;
   background-position: 23% 80%;
   text-indent: -9999px;
