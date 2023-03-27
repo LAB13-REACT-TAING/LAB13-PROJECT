@@ -1,0 +1,32 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css');
+/*타잉에 모든 색상이 다 있습니다. */
+:root {
+  --black: #000000;
+  --brand-dark-bg-2: #212121;
+  --white: #ffffff;
+  --gray-50: #f9f9f9;
+  --gray-100: #e1e1e1;
+  --gray-200: #c4c4c4;
+  --gray-300: #a6a6a6;
+  --gray-400: #898989;
+  --gray-500: #6b6b6b;
+  --gray-600: #565656;
+  --gray-700: #404040;
+  --gray-800: #2b2b2b;
+  --primary: #e93945;
+  --red-1: #ff002f;
+  --red-2: #ff305b;
+
+  /* 12px */
+  --text-sm: 0.75rem;
+  /* 16px */
+  --text-base: 1rem;
+  /*21px*/
+  --text-md: 1.312rem;
+  /*28px*/
+  --text-lg: 1.75rem;
+  /*38px*/
+  --text-xl: 2.375rem;
+  /*50px*/
+  --text-xxl: 3.125em;
+}
