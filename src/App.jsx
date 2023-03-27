@@ -49,11 +49,9 @@ function App() {
             onCancel={handleLogoutCancel}
           />
         )}
-        {
-          realSearchOpen && <SearchForm />
-        }
+        {realSearchOpen && <SearchForm />}
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/LAB13-PROJECT" element={<LandingPage />} />
           <Route path="/loginpage" element={<SignIn />} />
           <Route path="/main" element={<Main />} />
           <Route path="/signup" element={<SignUp />} />
