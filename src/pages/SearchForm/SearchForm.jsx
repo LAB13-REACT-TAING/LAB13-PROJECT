@@ -5,7 +5,7 @@ import useDataList from '../../hooks/useDataList';
 
 export default function SearchForm() {
   const inputFocus = useRef(null);
-  const baseUrl = '../src/assets/images/'; // 경로 설정
+  const baseUrl = '/assets/images/'; // 경로 설정
 
   const listData = useDataList();
 

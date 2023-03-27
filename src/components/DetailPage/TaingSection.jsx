@@ -1,7 +1,7 @@
 /* eslint-disable react/button-has-type */
 import style from './TaingSection.module.css';
-import image from '../../assets/images/maknaeadeul_02.jpg';
 import LikeButton from './LikeButton';
+import image from '/assets/images/maknaeadeul_02.jpg';
 
 function TaingSection() {
   return (

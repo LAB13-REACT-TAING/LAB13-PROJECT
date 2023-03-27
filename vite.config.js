@@ -6,7 +6,7 @@ export default defineConfig({
   base: '/LAB13-PROJECT/',
   resolve: {
     alias: [
-      { find: '@', replacement: '/src' },
+      { find: '@', replacement: '/public' },
       // src 내 절대경로 설정(@)
       { find: '@components', replacement: '/src/components' },
       // src 내 절대경로 설정(@)

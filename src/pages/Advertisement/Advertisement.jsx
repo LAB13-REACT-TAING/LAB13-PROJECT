@@ -1,5 +1,5 @@
 import React from 'react';
-import banner from '../../assets/images/bigbanner_03.jpg';
+import banner from '@/assets/images/bigbanner_03.jpg';
 
 export default function Advertisement() {
   return (

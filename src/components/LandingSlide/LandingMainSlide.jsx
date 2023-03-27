@@ -35,7 +35,7 @@ export default function LandingMainSlide() {
         }}
       >
         {datas.map(contents => {
-          const baseUrl = '../src/assets/images/';
+          const baseUrl = '/assets/images/';
           const src = `${baseUrl}${contents.src.rendingfunny}.jpg`;
           const style = { marginLeft: '24px' };
 

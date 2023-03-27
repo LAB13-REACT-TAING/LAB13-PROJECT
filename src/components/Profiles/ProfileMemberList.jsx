@@ -6,7 +6,7 @@ export function ProfileMemberList({
   activePhoto,
   onClickChangeProfileHandler,
 }) {
-  const baseUrl = '../src/assets/images/';
+  const baseUrl = '/assets/images/';
 
   return (
     <li className={`${style.profileliwrap} `}>

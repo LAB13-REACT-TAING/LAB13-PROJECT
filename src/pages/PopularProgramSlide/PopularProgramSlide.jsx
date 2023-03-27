@@ -10,9 +10,9 @@ import useDataFilter from '../../hooks/useDataFilter';
 SwiperCore.use([Navigation, Pagination, A11y]);
 
 export default function PopularProgramSlide() {
-  const baseUrl = '../src/assets/images/'; // 경로 설정
+  const baseUrl = '/assets/images/'; // 경로 설정
 
-  const numberUrl = '../src/assets/images/numbers/';
+  const numberUrl = '/assets/images/numbers/';
 
   const FilterData = useDataFilter('slide');
 

@@ -15,7 +15,7 @@ export default function AutoSlide() {
   return (
     <div className={style.slideWrapper}>
       {data.map(contents => {
-        const baseUrl = '../src/assets/images/';
+        const baseUrl = '/assets/images/';
         const src = `${baseUrl}${contents.src.rendingfunny}.jpg`;
         return (
           <div key={contents.id} className={style.wrapper}>

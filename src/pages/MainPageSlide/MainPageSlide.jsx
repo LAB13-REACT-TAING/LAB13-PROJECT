@@ -16,7 +16,7 @@ import './MainPageSlide.css';
 SwiperCore.use([Navigation, Pagination, A11y]);
 
 export default function MainPageSlide() {
-  const baseUrl = '../src/assets/images/'; // 경로 설정
+  const baseUrl = '/assets/images/'; // 경로 설정
 
   const FilterData = useDataFilter('slide');
 
@@ -24,8 +24,8 @@ export default function MainPageSlide() {
     <div className="swiper-title">
       <h2
         style={{
-          'marginLeft': '44px',
-          'marginBottom': '8px',
+          marginLeft: '44px',
+          marginBottom: '8px',
           width: '375px',
         }}
         className="list_title"
@@ -35,9 +35,9 @@ export default function MainPageSlide() {
 
       <Swiper
         style={{
-          'marginBottom': '36px',
-          'marginLeft': '44px',
-          'paddingTop': '10px',
+          marginBottom: '36px',
+          marginLeft: '44px',
+          paddingTop: '10px',
         }}
         spaceBetween={10}
         slidesPerView={7.4}

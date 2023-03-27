@@ -9,7 +9,7 @@ import 'swiper/css/scrollbar';
 import style from './MainNavPage.module.css';
 
 export default function UseDataMain() {
-  const baseUrl = '../src/assets/images/';
+  const baseUrl = '/assets/images/';
   const FilterData = useDataFilter('main');
 
   const slides = [
