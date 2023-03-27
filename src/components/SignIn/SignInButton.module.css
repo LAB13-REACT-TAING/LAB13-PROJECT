@@ -21,7 +21,7 @@ label[name='autoCheckInactive']::before {
   position: absolute;
   top: 0;
   left: 0;
-  background: url('../../assets/icons/sprites-icon.png') no-repeat -350px -548px;
+  background: url('/assets/icons/sprites-icon.png') no-repeat -350px -548px;
   width: 26px;
   height: 26px;
 }
@@ -44,7 +44,7 @@ label[name='autoCheckActive']::before {
   position: absolute;
   top: 0;
   left: 0;
-  background: url('../../assets/icons/sprites-icon.png') no-repeat -396px -548px;
+  background: url('/assets/icons/sprites-icon.png') no-repeat -396px -548px;
   width: 26px;
   height: 26px;
 }
