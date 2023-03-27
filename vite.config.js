@@ -14,4 +14,7 @@ export default defineConfig({
       // src 내 절대 경로 설정(@)
     ],
   },
+  build: {
+    chunkSizeWarningLimit: 1600,
+  },
 });
